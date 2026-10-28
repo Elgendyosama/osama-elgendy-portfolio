@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllInitialArticles } from "@/lib/articles-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://osamaelgendy.com";
+  const baseUrl = "https://osama-elgendy-portfolio.vercel.app";
   const publishedArticles = getAllInitialArticles().filter((a) => a.isPublished);
 
   const articleEntries: MetadataRoute.Sitemap = publishedArticles.map((article) => {
