@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/admin/*", "/login"],
       },
     ],
-    sitemap: "https://osamaelgendy.com/sitemap.xml",
+    sitemap: "https://osama-elgendy-portfolio.vercel.app/sitemap.xml",
   };
 }
