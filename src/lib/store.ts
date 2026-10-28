@@ -10,7 +10,10 @@ import {
   CertificateItem,
   AuditStep,
   TestimonialItem,
+  Article,
 } from "./types";
+import { initialArticles } from "./articles-data";
+
 
 export const initialSiteConfig: SiteConfig = {
   name: "Osama Elgendy",
@@ -23,14 +26,22 @@ export const initialSiteConfig: SiteConfig = {
   metaTitle: "Osama Elgendy | SEO Team Leader & E-Commerce SEO Specialist",
   metaDescription:
     "Senior SEO Team Leader & E-Commerce SEO Specialist with 6+ years scaling organic traffic and revenue for 120+ sites and 50+ stores in Saudi Arabia & Middle East. Proven Technical SEO, GEO/AEO, and GSC growth.",
+  metaTitleAr: "أسامة الجندي | قائد فريق السيو وخبير سيو المتاجر الإلكترونية",
+  metaDescriptionAr:
+    "قائد فريق سيو وخبير سيو متاجر سلة وزد وشوبيفاي بخبرة 6+ سنوات. تحسين أكثر من 120 موقعاً و50 متجراً في السعودية والخليج، وتصدر نتائج البحث ومحركات الذكاء الاصطناعي GEO.",
   ogImage: "/images/og-banner.jpg",
   gscVerificationId: "google-site-verification-osama-elgendy-verified",
   gtmId: "GTM-OSAMASEO",
   heroHeadline: "SEO Team Leader & E-Commerce SEO Specialist",
+  heroHeadlineAr: "قائد فريق السيو وخبير سيو المتاجر الإلكترونية المعتمد",
   heroSubheadline:
     "Engineering high-revenue organic search engines for 120+ businesses across Saudi Arabia and the Middle East through Deep Technical SEO, High-Converting E-Commerce Strategy, and Next-Gen AI Search (GEO / AEO).",
+  heroSubheadlineAr:
+    "مضاعفة مبيعات وأرباح محركات البحث للشركات والمتاجر في السعودية والخليج العربي عبر السيو التقني المتقدم، وهندسة متاجر سلة وزد وشوبيفاي، وتصدر محركات الذكاء الاصطناعي (GEO / AEO).",
   aboutText:
     "SEO Expert and E-commerce SEO Expert with 6+ Years of Experience specializing in SEO Audits, Digital Marketing, On-Page and Off-Page Optimization, Link-Building Campaigns, and Keyword Optimization. Strong understanding of SEO Algorithms, Ranking Factors, and advanced SEO Strategies focused on improving organic traffic, search visibility, and conversion rates.\n\nExperienced in managing and optimizing E-commerce Stores across Saudi Arabia and the Middle East, with hands-on expertise in WordPress SEO, Magento SEO, Shopify, Salla, and Zid platforms. Skilled in enhancing store performance, user experience, and technical SEO to increase online sales and business growth.\n\nGrowing expertise in AI-powered search technologies including AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization). Passionate about leveraging AI and modern SEO techniques to adapt to the future of search engines.\n\nExperienced in using SEO and Analytics tools including GA4, Google Search Console, GTM, Looker Studio, Semrush, Ahrefs, Moz, and SE Ranking.",
+  aboutTextAr:
+    "خبير وقائد فريق سيو متخصص في متاجر التجارة الإلكترونية بخبرة تتجاوز 6 سنوات في إدارة وتطوير استراتيجيات تحسين محركات البحث في السعودية والخليج ومصر. خبرة عملية عميقة في منصات سلة (Salla)، زد (Zid)، شوبيفاي (Shopify)، وماجنتو (Magento).\n\nمتخصص في الفحص التقني الشامل، وهندسة الكيانات الدلالية، وسيو محركات الذكاء الاصطناعي (GEO/AEO)، وتحسين معدل التحويل (CRO) لربط زيارات محركات البحث بأرقام المبيعات الحقيقية.",
 };
 
 export const initialMetrics: MetricItem[] = [
@@ -732,6 +743,7 @@ const STORAGE_KEYS = {
   LEADS: "osama_seo_leads_v1",
   AUTH: "osama_admin_auth_session",
   VISITS: "osama_seo_visit_count",
+  ARTICLES: "osama_seo_articles_v1",
 };
 
 export const getSiteConfig = (): SiteConfig => {
@@ -875,3 +887,115 @@ export const setAdminSession = (isValid: boolean): void => {
     localStorage.removeItem(STORAGE_KEYS.AUTH);
   }
 };
+
+// ==========================================
+// Articles & Blog CMS Storage Layer
+// ==========================================
+
+export const getArticles = (): Article[] => {
+  if (typeof window === "undefined") return initialArticles;
+  try {
+    const saved = localStorage.getItem(STORAGE_KEYS.ARTICLES);
+    if (!saved) {
+      localStorage.setItem(STORAGE_KEYS.ARTICLES, JSON.stringify(initialArticles));
+      return initialArticles;
+    }
+    const parsed: Article[] = JSON.parse(saved);
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      // Merge with initialArticles: keep parsed, and add any initial articles not in parsed
+      const parsedIds = new Set(parsed.map((a) => a.id));
+      const missingInitial = initialArticles.filter((a) => !parsedIds.has(a.id));
+      if (missingInitial.length > 0) {
+        const merged = [...parsed, ...missingInitial];
+        localStorage.setItem(STORAGE_KEYS.ARTICLES, JSON.stringify(merged));
+        return merged;
+      }
+      return parsed;
+    }
+    return initialArticles;
+  } catch {
+    return initialArticles;
+  }
+};
+
+export const getArticleBySlug = (slug: string, lang?: "en" | "ar"): Article | undefined => {
+  if (!slug) return undefined;
+  const decodedSlug = decodeURIComponent(slug).toLowerCase().trim();
+  const rawSlug = slug.toLowerCase().trim();
+  const articles = getArticles();
+
+  return articles.find((a) => {
+    const aDecoded = decodeURIComponent(a.slug).toLowerCase().trim();
+    const aRaw = a.slug.toLowerCase().trim();
+
+    const matches =
+      aRaw === rawSlug ||
+      aDecoded === decodedSlug ||
+      aRaw === decodedSlug ||
+      aDecoded === rawSlug;
+
+    if (!matches) return false;
+    if (lang && (a.lang || "en") !== lang) return false;
+    return true;
+  });
+};
+
+export const getArticleById = (id: string): Article | undefined => {
+  const articles = getArticles();
+  return articles.find((a) => a.id === id);
+};
+
+export const saveArticles = (articles: Article[]): void => {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(STORAGE_KEYS.ARTICLES, JSON.stringify(articles));
+};
+
+export const saveArticle = (article: Article): Article => {
+  const articles = getArticles();
+  const index = articles.findIndex((a) => a.id === article.id);
+  const now = new Date().toISOString();
+  let updated: Article[];
+
+  if (index >= 0) {
+    const existing = articles[index];
+    const updatedArticle: Article = {
+      ...existing,
+      ...article,
+      updatedAt: now,
+    };
+    updated = [...articles];
+    updated[index] = updatedArticle;
+  } else {
+    const newArticle: Article = {
+      ...article,
+      id: article.id || "art-" + Date.now(),
+      publishedAt: article.publishedAt || now,
+      updatedAt: now,
+      views: article.views || 0,
+    };
+    updated = [newArticle, ...articles];
+  }
+
+  saveArticles(updated);
+  return index >= 0 ? updated[index] : updated[0];
+};
+
+export const deleteArticle = (id: string): void => {
+  const articles = getArticles();
+  const updated = articles.filter((a) => a.id !== id);
+  saveArticles(updated);
+};
+
+export const incrementArticleViews = (slug: string): void => {
+  if (typeof window === "undefined") return;
+  try {
+    const articles = getArticles();
+    const updated = articles.map((a) =>
+      a.slug === slug ? { ...a, views: (a.views || 0) + 1 } : a
+    );
+    saveArticles(updated);
+  } catch {
+    // Ignore storage errors
+  }
+};
+

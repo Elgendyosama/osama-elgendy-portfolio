@@ -6,6 +6,11 @@ export const metadata: Metadata = {
     "احجز فحص سيو مجاني شامل واستشارة متخصصة لمتجرك أو موقعك مع أسامة الجندي. كشف الأخطاء التقنية، سرعة Core Web Vitals، فجوات الكلمات المفتاحية، وتصدر محركات الذكاء الاصطناعي GEO.",
   alternates: {
     canonical: "https://osamaelgendy.com/book",
+    languages: {
+      en: "https://osamaelgendy.com/book",
+      ar: "https://osamaelgendy.com/ar/book",
+      "x-default": "https://osamaelgendy.com/book",
+    },
   },
   openGraph: {
     title: "احجز فحص واستشارة سيو مجانية لموقعك | أسامة الجندي",

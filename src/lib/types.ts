@@ -8,12 +8,17 @@ export interface SiteConfig {
   yearsOfExperience: string;
   metaTitle: string;
   metaDescription: string;
+  metaTitleAr?: string;
+  metaDescriptionAr?: string;
   ogImage: string;
   gscVerificationId: string;
   gtmId: string;
   heroHeadline: string;
+  heroHeadlineAr?: string;
   heroSubheadline: string;
+  heroSubheadlineAr?: string;
   aboutText: string;
+  aboutTextAr?: string;
 }
 
 export interface MetricItem {
@@ -113,3 +118,34 @@ export interface TestimonialItem {
   rating: number;
   results: string;
 }
+
+export interface ArticleFAQItem {
+  id?: string;
+  question: string;
+  answer: string;
+}
+
+export interface Article {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string; // Markdown or HTML
+  featuredImage: string;
+  category: "Technical SEO" | "E-commerce SEO" | "AI SEO / GEO" | "Case Studies" | string;
+  tags: string[];
+  publishedAt: string; // ISO 8601 date string
+  updatedAt: string; // ISO 8601 date string
+  isPublished: boolean;
+  readTime?: string;
+  views?: number;
+  lang?: "en" | "ar";
+  alternateSlug?: string;
+  // Dedicated SEO Fields
+  metaTitle: string;
+  metaDescription: string;
+  canonicalUrl?: string;
+  focusKeyword: string;
+  faqItems: ArticleFAQItem[];
+}
+

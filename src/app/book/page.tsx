@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 import { translations, Language } from "@/lib/translations";
 import { addLead } from "@/lib/store";
 import {
@@ -27,16 +27,21 @@ import {
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
-function BookingContent() {
+export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
   const searchParams = useSearchParams();
+  const pathname = usePathname() || "";
   const serviceParam = searchParams.get("service") || "";
 
-  const [lang, setLang] = useState<Language>("ar");
+  const defaultLang: Language =
+    forcedLang || (pathname.startsWith("/ar") ? "ar" : "en");
+  const [lang, setLang] = useState<Language>(defaultLang);
   const [websiteUrl, setWebsiteUrl] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
-  const [platform, setPlatform] = useState("Salla (سلة)");
+  const [platform, setPlatform] = useState(
+    defaultLang === "ar" ? "Salla (سلة)" : "Shopify"
+  );
   const [monthlyTraffic, setMonthlyTraffic] = useState("5K - 20K");
   const [primaryGoal, setPrimaryGoal] = useState("");
   const [message, setMessage] = useState("");
@@ -44,11 +49,13 @@ function BookingContent() {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
-    const savedLang = localStorage.getItem("osama_portfolio_lang") as Language;
-    if (savedLang === "ar" || savedLang === "en") {
-      setLang(savedLang);
+    if (!forcedLang) {
+      const savedLang = localStorage.getItem("osama_portfolio_lang") as Language;
+      if (savedLang === "ar" || savedLang === "en") {
+        setLang(savedLang);
+      }
     }
-  }, []);
+  }, [forcedLang]);
 
   const t = translations[lang];
   const isAr = lang === "ar";
@@ -688,7 +695,7 @@ export default function BookPage() {
         </div>
       }
     >
-      <BookingContent />
+      <BookingContent forcedLang="en" />
     </Suspense>
   );
 }

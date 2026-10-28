@@ -17,15 +17,19 @@ import {
   Sparkles,
   FileEdit,
   Settings,
+  BookOpen,
 } from "lucide-react";
+import { getArticles } from "@/lib/store";
 
 export default function AdminDashboardPage() {
   const [leads, setLeads] = useState<AuditLeadItem[]>([]);
   const [visitorCount, setVisitorCount] = useState<number>(1420);
+  const [articlesCount, setArticlesCount] = useState<number>(0);
 
   useEffect(() => {
     setLeads(getLeads());
     setVisitorCount(getVisitCount());
+    setArticlesCount(getArticles().length);
   }, []);
 
   const totalLeads = leads.length;
@@ -75,6 +79,13 @@ export default function AdminDashboardPage() {
         </div>
 
         <div className="flex items-center gap-3">
+          <Link
+            href="/admin/articles"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-white/10 transition-all"
+          >
+            <BookOpen className="w-4 h-4 text-cyan-400" />
+            <span>Articles ({articlesCount})</span>
+          </Link>
           <Link
             href="/admin/leads"
             className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-brand-600 to-cyan-600 shadow-glow hover:opacity-95 transition-all"
@@ -154,17 +165,37 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Quick Actions Shortcuts */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Link
-          href="/admin/content"
-          className="p-5 rounded-2xl bg-gradient-to-r from-slate-900/90 to-[#0a1224] border border-white/10 hover:border-cyan-500/40 transition-all flex items-center justify-between group shadow-lg"
+          href="/admin/articles"
+          className="p-5 rounded-2xl bg-gradient-to-r from-slate-900/90 to-[#0a1224] border border-cyan-500/30 hover:border-cyan-500/60 transition-all flex items-center justify-between group shadow-lg"
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
-              <FileEdit className="w-5 h-5" />
+              <BookOpen className="w-5 h-5" />
             </div>
             <div>
               <h3 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors">
+                Articles & Blog CMS
+              </h3>
+              <p className="text-xs text-slate-400">
+                Write, publish & optimize technical SEO guides.
+              </p>
+            </div>
+          </div>
+          <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+        </Link>
+
+        <Link
+          href="/admin/content"
+          className="p-5 rounded-2xl bg-gradient-to-r from-slate-900/90 to-[#0a1224] border border-white/10 hover:border-brand-500/40 transition-all flex items-center justify-between group shadow-lg"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center text-brand-400">
+              <FileEdit className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-white group-hover:text-brand-300 transition-colors">
                 Content & Services CMS
               </h3>
               <p className="text-xs text-slate-400">
@@ -172,7 +203,7 @@ export default function AdminDashboardPage() {
               </p>
             </div>
           </div>
-          <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
+          <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-brand-400 group-hover:translate-x-1 transition-all" />
         </Link>
 
         <Link

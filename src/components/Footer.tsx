@@ -54,33 +54,38 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
-                <a href="#solutions" className="hover:text-cyan-400 transition-colors">
+                <a href={isAr ? "/ar/#solutions" : "/#solutions"} className="hover:text-cyan-400 transition-colors">
                   {t.nav.solutions}
                 </a>
               </li>
               <li>
-                <a href="#results" className="hover:text-cyan-400 transition-colors">
+                <a href={isAr ? "/ar/#results" : "/#results"} className="hover:text-cyan-400 transition-colors">
                   {t.nav.results}
                 </a>
               </li>
               <li>
-                <a href="#platforms" className="hover:text-cyan-400 transition-colors">
+                <a href={isAr ? "/ar/#platforms" : "/#platforms"} className="hover:text-cyan-400 transition-colors">
                   {t.nav.platforms}
                 </a>
               </li>
               <li>
-                <a href="#experience" className="hover:text-cyan-400 transition-colors">
+                <a href={isAr ? "/ar/#experience" : "/#experience"} className="hover:text-cyan-400 transition-colors">
                   {t.nav.experience}
                 </a>
               </li>
               <li>
-                <a href="#roadmap" className="hover:text-cyan-400 transition-colors">
+                <a href={isAr ? "/ar/#roadmap" : "/#roadmap"} className="hover:text-cyan-400 transition-colors">
                   {t.nav.roadmap}
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="hover:text-cyan-400 transition-colors">
-                  {t.nav.testimonials}
+                <a href={isAr ? "/ar/blog" : "/blog"} className="hover:text-cyan-400 transition-colors">
+                  {t.nav.blog}
+                </a>
+              </li>
+              <li>
+                <a href={isAr ? "/ar/book" : "/book"} className="hover:text-cyan-400 transition-colors">
+                  {t.nav.bookAudit}
                 </a>
               </li>
             </ul>

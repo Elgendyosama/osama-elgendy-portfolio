@@ -15,6 +15,7 @@ import {
   Menu,
   X,
   Sparkles,
+  BookOpen,
 } from "lucide-react";
 
 export default function AdminLayout({
@@ -62,6 +63,11 @@ export default function AdminLayout({
       href: "/admin/content",
       label: "Content Management",
       icon: <FileEdit className="w-4 h-4" />,
+    },
+    {
+      href: "/admin/articles",
+      label: "Articles & Blog CMS",
+      icon: <BookOpen className="w-4 h-4" />,
     },
     {
       href: "/admin/seo",

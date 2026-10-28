@@ -3,6 +3,7 @@ export type Language = "en" | "ar";
 export const translations = {
   en: {
     nav: {
+      home: "Home",
       about: "About",
       solutions: "SEO Solutions",
       results: "GSC Proofs",
@@ -10,6 +11,7 @@ export const translations = {
       experience: "Career",
       roadmap: "Audit Roadmap",
       testimonials: "Client Reviews",
+      blog: "Articles",
       bookAudit: "Book Free SEO Audit",
       languageToggle: "العربية",
     },
@@ -140,6 +142,7 @@ export const translations = {
   },
   ar: {
     nav: {
+      home: "الرئيسية",
       about: "عن أسامة",
       solutions: "حلول وخدمات السيو",
       results: "نتائج Search Console",
@@ -147,6 +150,7 @@ export const translations = {
       experience: "الخبرات المهنية",
       roadmap: "خارطة طريق الفحص",
       testimonials: "آراء العملاء",
+      blog: "المدونة",
       bookAudit: "احجز فحص سيو مجاني",
       languageToggle: "English",
     },

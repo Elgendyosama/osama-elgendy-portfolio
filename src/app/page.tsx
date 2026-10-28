@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Language } from "@/lib/translations";
 import { recordVisit } from "@/lib/store";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
@@ -19,98 +18,83 @@ import { Footer } from "@/components/Footer";
 import { AuditModal } from "@/components/AuditModal";
 
 export default function HomePage() {
-  const [lang, setLang] = useState<Language>("en");
   const [isAuditModalOpen, setIsAuditModalOpen] = useState(false);
   const [preselectedService, setPreselectedService] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     // Record client visit for admin analytics
     recordVisit();
-
-    // Check saved language preference if any
-    const savedLang = localStorage.getItem("osama_portfolio_lang") as Language;
-    if (savedLang === "ar" || savedLang === "en") {
-      setLang(savedLang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("osama_portfolio_lang", "en");
     }
   }, []);
-
-  const handleToggleLang = () => {
-    const nextLang: Language = lang === "en" ? "ar" : "en";
-    setLang(nextLang);
-    localStorage.setItem("osama_portfolio_lang", nextLang);
-  };
 
   const handleOpenAudit = (serviceName?: string) => {
     setPreselectedService(serviceName);
     setIsAuditModalOpen(true);
   };
 
-  const isAr = lang === "ar";
-
   return (
     <div
-      dir={isAr ? "rtl" : "ltr"}
-      className={`min-h-screen bg-[#060913] text-slate-100 ${
-        isAr ? "font-arabic" : "font-sans"
-      } selection:bg-cyan-500 selection:text-black`}
+      dir="ltr"
+      className="min-h-screen bg-[#060913] text-slate-100 font-sans selection:bg-cyan-500 selection:text-black"
     >
       {/* Navbar with language toggle & audit modal trigger */}
       <Navbar
-        lang={lang}
-        onToggleLang={handleToggleLang}
+        lang="en"
         onOpenAudit={() => handleOpenAudit()}
       />
 
       {/* Main Public Content */}
       <main>
         {/* Hero Section */}
-        <Hero lang={lang} onOpenAudit={() => handleOpenAudit()} />
+        <Hero lang="en" onOpenAudit={() => handleOpenAudit()} />
 
         {/* Impact Metrics Counters */}
-        <MetricsCounter lang={lang} />
+        <MetricsCounter lang="en" />
 
         {/* 7 Core SEO Solutions Grid */}
         <SolutionsGrid
-          lang={lang}
+          lang="en"
           onSelectService={(serviceName) => handleOpenAudit(serviceName)}
         />
 
         {/* Real Google Search Console Case Studies & Interactive Charts */}
-        <SearchConsoleShowcase lang={lang} />
+        <SearchConsoleShowcase lang="en" />
 
         {/* Platforms (Salla, Zid, Shopify) & SEO Tools */}
-        <PlatformChips lang={lang} />
+        <PlatformChips lang="en" />
 
         {/* Career Experience Timeline */}
-        <ExperienceTimeline lang={lang} />
+        <ExperienceTimeline lang="en" />
 
         {/* Semrush Academy & Advanced SEO Certifications */}
-        <Certifications lang={lang} />
+        <Certifications lang="en" />
 
         {/* 8-Step Site Audit Roadmap */}
-        <AuditRoadmap lang={lang} />
+        <AuditRoadmap lang="en" />
 
         {/* Why Choose Osama Elgendy */}
-        <WhyChooseMe lang={lang} />
+        <WhyChooseMe lang="en" />
 
         {/* Verified Regional Clients & Testimonials */}
-        <ClientsTestimonials lang={lang} />
+        <ClientsTestimonials lang="en" />
 
         {/* High-Converting CTA Contact Section */}
         <ContactSection
-          lang={lang}
+          lang="en"
           onOpenAudit={() => handleOpenAudit()}
         />
       </main>
 
-      {/* Footer (Strictly with NO public admin links) */}
-      <Footer lang={lang} />
+      {/* Global Footer */}
+      <Footer lang="en" />
 
-      {/* Lead Generation & Free Audit Intake Modal */}
+      {/* Interactive Audit Booking Lead Modal */}
       <AuditModal
         isOpen={isAuditModalOpen}
         onClose={() => setIsAuditModalOpen(false)}
-        lang={lang}
+        lang="en"
         preselectedService={preselectedService}
       />
     </div>

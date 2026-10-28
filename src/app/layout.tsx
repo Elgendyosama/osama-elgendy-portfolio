@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 import { WhatsAppWidget } from "@/components/WhatsAppWidget";
+import { LanguageHtmlHandler } from "@/components/LanguageHtmlHandler";
 
 // Modern typography system font stack with Arabic typography support
 
@@ -29,6 +31,14 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Osama Elgendy", url: "https://osamaelgendy.com" }],
   creator: "Osama Elgendy",
+  alternates: {
+    canonical: "https://osamaelgendy.com",
+    languages: {
+      en: "https://osamaelgendy.com",
+      ar: "https://osamaelgendy.com/ar",
+      "x-default": "https://osamaelgendy.com",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -70,11 +80,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headerList = await headers();
+  const pathname = headerList.get("x-pathname") || "";
+  const isAr = pathname.startsWith("/ar");
+
   const jsonLdPerson = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -144,7 +158,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html
+      lang={isAr ? "ar" : "en"}
+      dir={isAr ? "rtl" : "ltr"}
+      className="dark scroll-smooth"
+    >
       <head>
         <script
           type="application/ld+json"
@@ -156,8 +174,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="font-sans bg-[#060913] text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-black antialiased"
+        className={`bg-[#060913] text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-black antialiased ${
+          isAr ? "font-arabic" : "font-sans"
+        }`}
       >
+        <LanguageHtmlHandler />
         {children}
         <WhatsAppWidget />
       </body>
