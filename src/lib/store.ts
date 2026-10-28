@@ -30,7 +30,7 @@ export const initialSiteConfig: SiteConfig = {
   metaDescriptionAr:
     "قائد فريق سيو وخبير سيو متاجر سلة وزد وشوبيفاي بخبرة 6+ سنوات. تحسين أكثر من 120 موقعاً و50 متجراً في السعودية والخليج، وتصدر نتائج البحث ومحركات الذكاء الاصطناعي GEO.",
   ogImage: "/images/og-banner.jpg",
-  gscVerificationId: "google-site-verification-osama-elgendy-verified",
+  gscVerificationId: "A9qR1-DcsToqx2welG_cJpYUDvI1TSmkNw911_aTn9Y",
   gtmId: "GTM-OSAMASEO",
   heroHeadline: "SEO Team Leader & E-Commerce SEO Specialist",
   heroHeadlineAr: "قائد فريق السيو وخبير سيو المتاجر الإلكترونية المعتمد",
