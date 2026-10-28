@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification-osama-elgendy-verified",
+    google: "A9qR1-DcsToqx2welG_cJpYUDvI1TSmkNw911_aTn9Y",
   },
 };
 
@@ -174,9 +174,8 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`bg-[#060913] text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-black antialiased ${
-          isAr ? "font-arabic" : "font-sans"
-        }`}
+        className={`bg-[#060913] text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-black antialiased ${isAr ? "font-arabic" : "font-sans"
+          }`}
       >
         <LanguageHtmlHandler />
         {children}
