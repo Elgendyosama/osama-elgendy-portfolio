@@ -8,7 +8,7 @@ import { LanguageHtmlHandler } from "@/components/LanguageHtmlHandler";
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://osamaelgendy.com"),
+  metadataBase: new URL("https://osama-elgendy-portfolio.vercel.app"),
   title: "Osama Elgendy | SEO Team Leader & E-Commerce SEO Specialist",
   description:
     "Senior SEO Team Leader & E-Commerce SEO Specialist with 6+ years scaling organic traffic and revenue for 120+ sites and 50+ stores in Saudi Arabia & Middle East. Proven Technical SEO, GEO/AEO, and GSC growth.",
@@ -29,21 +29,21 @@ export const metadata: Metadata = {
     "خبير سيو متاجر سلة وزد",
     "قائد فريق السيو أسامة الجندي",
   ],
-  authors: [{ name: "Osama Elgendy", url: "https://osamaelgendy.com" }],
+  authors: [{ name: "Osama Elgendy", url: "https://osama-elgendy-portfolio.vercel.app" }],
   creator: "Osama Elgendy",
   alternates: {
-    canonical: "https://osamaelgendy.com",
+    canonical: "https://osama-elgendy-portfolio.vercel.app",
     languages: {
-      en: "https://osamaelgendy.com",
-      ar: "https://osamaelgendy.com/ar",
-      "x-default": "https://osamaelgendy.com",
+      en: "https://osama-elgendy-portfolio.vercel.app",
+      ar: "https://osama-elgendy-portfolio.vercel.app/ar",
+      "x-default": "https://osama-elgendy-portfolio.vercel.app",
     },
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     alternateLocale: ["ar_SA", "ar_EG"],
-    url: "https://osamaelgendy.com",
+    url: "https://osama-elgendy-portfolio.vercel.app",
     title: "Osama Elgendy | SEO Team Leader & E-Commerce SEO Specialist",
     description:
       "Proven organic growth for 120+ websites & 50+ stores. Technical SEO, E-Commerce revenue scaling, and AI Search Optimization.",
@@ -106,7 +106,7 @@ export default async function RootLayout({
       "Senior SEO Team Leader & E-Commerce SEO Specialist with 6+ years scaling organic traffic and revenue for 120+ sites and 50+ stores in Saudi Arabia & Middle East.",
     email: "osamasalehelgendy@gmail.com",
     telephone: "+201005647312",
-    image: "https://osamaelgendy.com/images/osama-elgendy.jpg",
+    image: "https://osama-elgendy-portfolio.vercel.app/images/osama-elgendy.jpg",
     nationality: "Egyptian",
     address: {
       "@type": "PostalAddress",
@@ -140,8 +140,8 @@ export default async function RootLayout({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "Osama Elgendy - SEO Team Leader & E-Commerce SEO Services",
-    image: "https://osamaelgendy.com/images/og-banner.jpg",
-    url: "https://osamaelgendy.com",
+    image: "https://osama-elgendy-portfolio.vercel.app/images/og-banner.jpg",
+    url: "https://osama-elgendy-portfolio.vercel.app",
     telephone: "+201005647312",
     email: "osamasalehelgendy@gmail.com",
     priceRange: "$$",
