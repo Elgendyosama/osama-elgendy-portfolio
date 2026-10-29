@@ -45,9 +45,9 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ items, lang = 
   if (items.length === 0) return null;
 
   return (
-    <div className="rounded-2xl p-5 bg-[#090e1c] border border-white/10 shadow-xl">
-      <div className="flex items-center gap-2 pb-3.5 mb-3.5 border-b border-white/10 text-white font-heading font-bold text-sm tracking-wide">
-        <AlignLeft className="w-4 h-4 text-cyan-400" />
+    <div className="rounded-2xl p-5 bg-white border border-slate-200 shadow-sm">
+      <div className="flex items-center gap-2 pb-3.5 mb-3.5 border-b border-slate-100 text-slate-900 font-heading font-bold text-sm tracking-wide">
+        <AlignLeft className="w-4 h-4 text-brand-600" />
         <span>{isAr ? "فهرس محتويات المقال" : "Table of Contents"}</span>
       </div>
 
@@ -64,13 +64,13 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ items, lang = 
                   href={`#${item.id}`}
                   className={`flex items-start gap-1.5 py-1 px-2 rounded-lg transition-colors leading-snug ${
                     isActive
-                      ? "bg-cyan-500/10 text-cyan-400 font-semibold"
-                      : "text-slate-400 hover:text-slate-200 hover:bg-white/5"
+                      ? "bg-brand-50 text-brand-700 font-semibold"
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                   }`}
                 >
                   <ChevronRight
                     className={`w-3.5 h-3.5 mt-0.5 shrink-0 transition-transform ${
-                      isActive ? "text-cyan-400 translate-x-0.5" : "text-slate-600"
+                      isActive ? "text-brand-600 translate-x-0.5" : "text-slate-400"
                     } ${isAr ? "rotate-180" : ""}`}
                   />
                   <span>{item.text}</span>

@@ -79,21 +79,21 @@ export const SearchConsoleShowcase: React.FC<SearchConsoleShowcaseProps> = ({ la
   const impressionsPath = createSmoothPath(impressionsPoints);
 
   return (
-    <section id="results" className="relative py-24 bg-[#080c18] border-t border-white/5 overflow-hidden">
+    <section id="results" className="relative py-24 bg-[#f8fafc] border-t border-slate-200/80 overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-brand-600/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-brand-500/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 text-xs font-semibold text-cyan-300 mb-3">
-            <BarChart2 className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-xs font-semibold text-brand-700 mb-3">
+            <BarChart2 className="w-3.5 h-3.5 text-brand-600" />
             <span>{t.gsc.headingBadge}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight">
             {t.gsc.heading}
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-slate-300 font-normal">
+          <p className="mt-4 text-sm sm:text-base text-slate-600 font-normal">
             {t.gsc.subheading}
           </p>
         </div>
@@ -109,47 +109,47 @@ export const SearchConsoleShowcase: React.FC<SearchConsoleShowcaseProps> = ({ la
               }}
               className={`p-3.5 rounded-2xl text-start transition-all duration-300 border ${
                 selectedIndex === index
-                  ? "bg-slate-900 border-cyan-400 shadow-glow"
-                  : "bg-slate-950/60 border-white/5 hover:border-white/20 hover:bg-slate-900/60"
+                  ? "bg-white border-brand-500 shadow-md ring-1 ring-brand-500"
+                  : "bg-white/80 border-slate-200 hover:border-brand-300 hover:bg-white text-slate-700 shadow-sm"
               }`}
             >
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[10px] uppercase font-bold text-slate-400">
+                <span className="text-[10px] uppercase font-bold text-slate-500">
                   {cs.platform}
                 </span>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-growth-500/20 text-growth-400">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200">
                   {cs.growth}
                 </span>
               </div>
-              <h4 className="text-xs sm:text-sm font-bold text-white line-clamp-1">
+              <h4 className="text-xs sm:text-sm font-bold text-slate-900 line-clamp-1">
                 {isAr ? cs.clientNameAr : cs.clientName}
               </h4>
-              <p className="text-[11px] text-slate-400 mt-0.5">{cs.period}</p>
+              <p className="text-[11px] text-slate-500 mt-0.5">{cs.period}</p>
             </button>
           ))}
         </div>
 
         {/* Interactive Google Search Console Mock Window */}
-        <div className="rounded-3xl border border-white/10 bg-[#090e1c] shadow-2xl overflow-hidden">
+        <div className="rounded-3xl border border-slate-200 bg-white shadow-xl overflow-hidden">
           {/* GSC App Bar */}
-          <div className="bg-[#0e1428] px-4 py-3 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
+          <div className="bg-slate-50/90 px-4 py-3 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3">
             {/* Left: Google Search Console Logo & Domain */}
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2">
                 {/* Google Colors icon */}
-                <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white/10 border border-white/10">
-                  <span className="font-bold text-xs text-blue-400">G</span>
+                <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-white border border-slate-200 shadow-sm">
+                  <span className="font-bold text-xs text-brand-600">G</span>
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs sm:text-sm font-bold text-white tracking-wide">
+                    <span className="text-xs sm:text-sm font-bold text-slate-900 tracking-wide">
                       Google Search Console
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-brand-50 text-brand-700 border border-brand-200 font-medium">
                       Performance
                     </span>
                   </div>
-                  <span className="text-[11px] text-slate-400 font-mono">
+                  <span className="text-[11px] text-slate-500 font-mono">
                     {currentCase.platform} • {isAr ? currentCase.industryAr : currentCase.industry}
                   </span>
                 </div>
@@ -158,12 +158,12 @@ export const SearchConsoleShowcase: React.FC<SearchConsoleShowcaseProps> = ({ la
 
             {/* Right: Verified Account & Date Filter Badge */}
             <div className="flex items-center gap-2.5">
-              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 border border-white/10 text-xs font-mono text-slate-300">
-                <span className="w-2 h-2 rounded-full bg-growth-400" />
+              <div className="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 text-xs font-mono text-slate-700 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-brand-500" />
                 <span>osamasalehelgendy@gmail.com</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-cyan-300">
-                <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white border border-slate-200 text-xs font-semibold text-slate-700 shadow-sm">
+                <Calendar className="w-3.5 h-3.5 text-brand-600" />
                 <span>{currentCase.period}</span>
               </div>
             </div>
@@ -172,91 +172,91 @@ export const SearchConsoleShowcase: React.FC<SearchConsoleShowcaseProps> = ({ la
           {/* Metric Metric Tabs (Exact GSC Styling) */}
           <div className="p-4 sm:p-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6">
-              {/* Total Clicks Card (Blue) */}
-              <div className="rounded-2xl p-4 bg-[#0a1a36]/80 border-2 border-brand-500/50 shadow-inner">
-                <div className="flex items-center justify-between text-xs font-semibold text-brand-300 mb-1">
+              {/* Total Clicks Card (Brand Green) */}
+              <div className="rounded-2xl p-4 bg-brand-50/60 border-2 border-brand-400/80 shadow-sm">
+                <div className="flex items-center justify-between text-xs font-semibold text-brand-800 mb-1">
                   <div className="flex items-center gap-1.5">
-                    <CheckSquare className="w-3.5 h-3.5 text-brand-400" />
+                    <CheckSquare className="w-3.5 h-3.5 text-brand-600" />
                     <span>{t.gsc.totalClicks}</span>
                   </div>
                 </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
                   {currentCase.clicks}
                 </div>
-                <div className="text-[11px] text-growth-400 font-medium mt-1 flex items-center gap-1">
+                <div className="text-[11px] text-brand-700 font-medium mt-1 flex items-center gap-1">
                   <TrendingUp className="w-3 h-3" />
                   <span>{currentCase.growth}</span>
                 </div>
               </div>
 
-              {/* Total Impressions Card (Purple) */}
-              <div className="rounded-2xl p-4 bg-[#1e1035]/80 border-2 border-purple-500/50 shadow-inner">
-                <div className="flex items-center justify-between text-xs font-semibold text-purple-300 mb-1">
+              {/* Total Impressions Card (Silver / Slate) */}
+              <div className="rounded-2xl p-4 bg-slate-50 border-2 border-slate-200 shadow-sm">
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-700 mb-1">
                   <div className="flex items-center gap-1.5">
-                    <CheckSquare className="w-3.5 h-3.5 text-purple-400" />
+                    <CheckSquare className="w-3.5 h-3.5 text-slate-500" />
                     <span>{t.gsc.totalImpressions}</span>
                   </div>
                 </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
                   {currentCase.impressions}
                 </div>
-                <div className="text-[11px] text-purple-300 font-medium mt-1">
+                <div className="text-[11px] text-slate-500 font-medium mt-1">
                   Verified organic search impressions
                 </div>
               </div>
 
-              {/* Average CTR Card (Teal) */}
-              <div className="rounded-2xl p-4 bg-[#072422]/80 border-2 border-teal-500/50 shadow-inner">
-                <div className="flex items-center justify-between text-xs font-semibold text-teal-300 mb-1">
+              {/* Average CTR Card */}
+              <div className="rounded-2xl p-4 bg-slate-50 border-2 border-slate-200 shadow-sm">
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-700 mb-1">
                   <div className="flex items-center gap-1.5">
-                    <CheckSquare className="w-3.5 h-3.5 text-teal-400" />
+                    <CheckSquare className="w-3.5 h-3.5 text-slate-500" />
                     <span>{t.gsc.avgCtr}</span>
                   </div>
                 </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
                   {currentCase.ctr}
                 </div>
-                <div className="text-[11px] text-teal-300 font-medium mt-1">
+                <div className="text-[11px] text-slate-500 font-medium mt-1">
                   High-intent commercial search
                 </div>
               </div>
 
-              {/* Average Position Card (Orange) */}
-              <div className="rounded-2xl p-4 bg-[#2b1807]/80 border-2 border-amber-500/50 shadow-inner">
-                <div className="flex items-center justify-between text-xs font-semibold text-amber-300 mb-1">
+              {/* Average Position Card */}
+              <div className="rounded-2xl p-4 bg-slate-50 border-2 border-slate-200 shadow-sm">
+                <div className="flex items-center justify-between text-xs font-semibold text-slate-700 mb-1">
                   <div className="flex items-center gap-1.5">
-                    <CheckSquare className="w-3.5 h-3.5 text-amber-400" />
+                    <CheckSquare className="w-3.5 h-3.5 text-slate-500" />
                     <span>{t.gsc.avgPosition}</span>
                   </div>
                 </div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+                <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
                   {currentCase.avgPosition}
                 </div>
-                <div className="text-[11px] text-amber-300 font-medium mt-1">
+                <div className="text-[11px] text-slate-500 font-medium mt-1">
                   Top of First Page Rankings
                 </div>
               </div>
             </div>
 
             {/* Interactive SVG Chart Canvas */}
-            <div className="relative rounded-2xl bg-[#070b16] border border-white/5 p-4 sm:p-6 overflow-hidden">
+            <div className="relative rounded-2xl bg-slate-50 border border-slate-200 p-4 sm:p-6 overflow-hidden">
               {/* Legend */}
               <div className="flex items-center justify-between gap-4 mb-4 text-xs font-medium">
                 <div className="flex items-center gap-4">
-                  <span className="flex items-center gap-1.5 text-brand-400 font-semibold">
-                    <span className="w-3 h-1 bg-brand-400 rounded-full" />
+                  <span className="flex items-center gap-1.5 text-brand-700 font-semibold">
+                    <span className="w-3 h-1 bg-brand-600 rounded-full" />
                     Clicks Trend
                   </span>
-                  <span className="flex items-center gap-1.5 text-purple-400 font-semibold">
-                    <span className="w-3 h-1 bg-purple-400 rounded-full" />
+                  <span className="flex items-center gap-1.5 text-slate-600 font-semibold">
+                    <span className="w-3 h-1 bg-slate-400 rounded-full" />
                     Impressions Trend
                   </span>
                 </div>
                 {hoveredPoint && (
-                  <div className="flex items-center gap-3 bg-slate-900 px-3 py-1 rounded-lg border border-white/10 text-slate-200">
-                    <span className="text-slate-400">{hoveredPoint.date}:</span>
-                    <span className="text-brand-400 font-bold">{hoveredPoint.clicks.toLocaleString()} clicks</span>
-                    <span className="text-purple-400 font-bold">{hoveredPoint.impressions.toLocaleString()} imp.</span>
+                  <div className="flex items-center gap-3 bg-white px-3 py-1 rounded-lg border border-slate-200 text-slate-800 shadow-sm">
+                    <span className="text-slate-500">{hoveredPoint.date}:</span>
+                    <span className="text-brand-600 font-bold">{hoveredPoint.clicks.toLocaleString()} clicks</span>
+                    <span className="text-slate-600 font-bold">{hoveredPoint.impressions.toLocaleString()} imp.</span>
                   </div>
                 )}
               </div>
@@ -270,12 +270,12 @@ export const SearchConsoleShowcase: React.FC<SearchConsoleShowcaseProps> = ({ la
                 >
                   <defs>
                     <linearGradient id="clicksGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.35" />
-                      <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#22a344" stopOpacity="0.30" />
+                      <stop offset="100%" stopColor="#22a344" stopOpacity="0" />
                     </linearGradient>
                     <linearGradient id="impGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#a855f7" stopOpacity="0.25" />
-                      <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#b0b5b9" stopOpacity="0.35" />
+                      <stop offset="100%" stopColor="#b0b5b9" stopOpacity="0" />
                     </linearGradient>
                   </defs>
 
@@ -287,7 +287,7 @@ export const SearchConsoleShowcase: React.FC<SearchConsoleShowcaseProps> = ({ la
                       y1={chartHeight * pct - paddingY}
                       x2={chartWidth}
                       y2={chartHeight * pct - paddingY}
-                      stroke="rgba(255,255,255,0.06)"
+                      stroke="rgba(0,0,0,0.06)"
                       strokeDasharray="4 4"
                     />
                   ))}
@@ -300,7 +300,7 @@ export const SearchConsoleShowcase: React.FC<SearchConsoleShowcaseProps> = ({ la
                   <path
                     d={impressionsPath}
                     fill="none"
-                    stroke="#a855f7"
+                    stroke="#94a3b8"
                     strokeWidth="3"
                     strokeLinecap="round"
                   />
@@ -313,7 +313,7 @@ export const SearchConsoleShowcase: React.FC<SearchConsoleShowcaseProps> = ({ la
                   <path
                     d={clicksPath}
                     fill="none"
-                    stroke="#38bdf8"
+                    stroke="#22a344"
                     strokeWidth="3.5"
                     strokeLinecap="round"
                   />
@@ -325,8 +325,8 @@ export const SearchConsoleShowcase: React.FC<SearchConsoleShowcaseProps> = ({ la
                         cx={pt.x}
                         cy={pt.y}
                         r="5"
-                        fill="#060913"
-                        stroke="#38bdf8"
+                        fill="#ffffff"
+                        stroke="#22a344"
                         strokeWidth="2.5"
                         className="cursor-pointer hover:r-7 transition-all"
                         onMouseEnter={() => setHoveredPoint(pt.data)}
@@ -337,15 +337,15 @@ export const SearchConsoleShowcase: React.FC<SearchConsoleShowcaseProps> = ({ la
               </div>
 
               {/* Bottom Summary Explanation */}
-              <div className="mt-4 pt-4 border-t border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
-                  <span className="font-bold text-cyan-400">
+              <div className="mt-4 pt-4 border-t border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <p className="text-xs sm:text-sm text-slate-700 leading-relaxed max-w-3xl">
+                  <span className="font-bold text-brand-700">
                     {isAr ? "تحليل الاستراتيجية المطبقة: " : "Strategy Applied: "}
                   </span>
                   {isAr ? currentCase.summaryAr : currentCase.summary}
                 </p>
 
-                <div className="shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-growth-500/10 border border-growth-500/30 text-xs font-semibold text-growth-400">
+                <div className="shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-brand-50 border border-brand-200 text-xs font-semibold text-brand-700">
                   <ShieldCheck className="w-4 h-4" />
                   <span>{t.gsc.verifiedGoogleAccount}</span>
                 </div>

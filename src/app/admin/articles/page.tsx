@@ -362,16 +362,16 @@ export default function AdminArticlesPage() {
   const metaDescLength = formData.metaDescription?.length || 0;
 
   const getTitleStatusColor = () => {
-    if (metaTitleLength >= 45 && metaTitleLength <= 60) return "text-growth-400";
-    if (metaTitleLength > 0 && metaTitleLength < 45) return "text-amber-400";
-    if (metaTitleLength > 60) return "text-rose-400";
+    if (metaTitleLength >= 45 && metaTitleLength <= 60) return "text-brand-700 font-bold";
+    if (metaTitleLength > 0 && metaTitleLength < 45) return "text-amber-600 font-semibold";
+    if (metaTitleLength > 60) return "text-rose-600 font-semibold";
     return "text-slate-500";
   };
 
   const getDescStatusColor = () => {
-    if (metaDescLength >= 140 && metaDescLength <= 160) return "text-growth-400";
-    if (metaDescLength > 0 && metaDescLength < 140) return "text-amber-400";
-    if (metaDescLength > 160) return "text-rose-400";
+    if (metaDescLength >= 140 && metaDescLength <= 160) return "text-brand-700 font-bold";
+    if (metaDescLength > 0 && metaDescLength < 140) return "text-amber-600 font-semibold";
+    if (metaDescLength > 160) return "text-rose-600 font-semibold";
     return "text-slate-500";
   };
 
@@ -384,35 +384,35 @@ export default function AdminArticlesPage() {
     <div className="space-y-8">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-cyan-950/90 border border-cyan-500 text-cyan-200 text-sm font-semibold shadow-2xl animate-in slide-in-from-bottom-5">
-          <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-brand-600 border border-brand-700 text-white text-sm font-semibold shadow-xl animate-in slide-in-from-bottom-5">
+          <CheckCircle2 className="w-5 h-5 text-white shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Delete Confirmation Modal */}
       {deleteConfirmId && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#090e1c] border border-white/10 rounded-3xl p-6 sm:p-8 max-w-md w-full space-y-4 shadow-2xl">
-            <div className="w-12 h-12 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 max-w-md w-full space-y-4 shadow-2xl">
+            <div className="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center">
               <Trash2 className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white font-heading">
+            <h3 className="text-lg font-bold text-slate-900 font-heading">
               Delete Article?
             </h3>
-            <p className="text-xs sm:text-sm text-slate-300">
+            <p className="text-xs sm:text-sm text-slate-600">
               Are you sure you want to delete this article? This action cannot be undone.
             </p>
             <div className="flex items-center justify-end gap-3 pt-3">
               <button
                 onClick={() => setDeleteConfirmId(null)}
-                className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 transition-colors"
+                className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 transition-colors"
               >
                 Cancel
               </button>
               <button
                 onClick={() => handleDelete(deleteConfirmId)}
-                className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-rose-600 hover:bg-rose-500 transition-colors shadow-glow"
+                className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 transition-colors shadow-sm"
               >
                 Confirm Delete
               </button>
@@ -428,15 +428,15 @@ export default function AdminArticlesPage() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-mono uppercase">
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-brand-50 text-brand-700 border border-brand-200 font-mono uppercase">
                   CMS Module
                 </span>
-                <span className="text-xs text-slate-400">Multilingual Next.js App Router</span>
+                <span className="text-xs text-slate-500">Multilingual Next.js App Router</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl font-black text-white font-heading mt-1">
+              <h1 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading mt-1">
                 Articles & Technical SEO Blog Manager
               </h1>
-              <p className="text-xs sm:text-sm text-slate-400 mt-1">
+              <p className="text-xs sm:text-sm text-slate-600 mt-1">
                 Manage, publish, and optimize bilingual articles for English (/) and Arabic (/ar) with strict hreflang tags.
               </p>
             </div>
@@ -444,14 +444,14 @@ export default function AdminArticlesPage() {
             <div className="flex items-center gap-2.5">
               <button
                 onClick={() => handleOpenCreate("en")}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-blue-600 to-cyan-600 shadow-glow hover:opacity-95 transition-all"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-all"
               >
                 <Plus className="w-4 h-4" />
                 <span>+ New English Article</span>
               </button>
               <button
                 onClick={() => handleOpenCreate("ar")}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 shadow-glow-emerald hover:opacity-95 transition-all"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-brand-700 hover:bg-brand-800 shadow-sm transition-all font-arabic"
               >
                 <Plus className="w-4 h-4" />
                 <span>+ مقال عربي جديد</span>
@@ -461,28 +461,28 @@ export default function AdminArticlesPage() {
 
           {/* Quick Metrics Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="rounded-2xl p-4 bg-[#090e1c] border border-white/10">
-              <div className="text-xs text-slate-400">Total Articles</div>
-              <div className="text-xl sm:text-2xl font-black text-white font-heading mt-1">
+            <div className="rounded-2xl p-4 bg-white border border-slate-200 shadow-sm">
+              <div className="text-xs text-slate-500 font-medium">Total Articles</div>
+              <div className="text-xl sm:text-2xl font-black text-slate-900 font-heading mt-1">
                 {articles.length}
               </div>
             </div>
-            <div className="rounded-2xl p-4 bg-[#090e1c] border border-white/10">
-              <div className="text-xs text-slate-400">English / Arabic Split</div>
-              <div className="text-xl sm:text-2xl font-black text-cyan-400 font-heading mt-1">
+            <div className="rounded-2xl p-4 bg-white border border-slate-200 shadow-sm">
+              <div className="text-xs text-slate-500 font-medium">English / Arabic Split</div>
+              <div className="text-xl sm:text-2xl font-black text-brand-700 font-heading mt-1">
                 {articles.filter((a) => (a.lang || "en") === "en").length} EN /{" "}
                 {articles.filter((a) => a.lang === "ar").length} AR
               </div>
             </div>
-            <div className="rounded-2xl p-4 bg-[#090e1c] border border-white/10">
-              <div className="text-xs text-slate-400">Published (Indexable)</div>
-              <div className="text-xl sm:text-2xl font-black text-growth-400 font-heading mt-1">
+            <div className="rounded-2xl p-4 bg-white border border-slate-200 shadow-sm">
+              <div className="text-xs text-slate-500 font-medium">Published (Indexable)</div>
+              <div className="text-xl sm:text-2xl font-black text-brand-600 font-heading mt-1">
                 {articles.filter((a) => a.isPublished).length}
               </div>
             </div>
-            <div className="rounded-2xl p-4 bg-[#090e1c] border border-white/10">
-              <div className="text-xs text-slate-400">Total Article Reads</div>
-              <div className="text-xl sm:text-2xl font-black text-purple-400 font-heading mt-1">
+            <div className="rounded-2xl p-4 bg-white border border-slate-200 shadow-sm">
+              <div className="text-xs text-slate-500 font-medium">Total Article Reads</div>
+              <div className="text-xl sm:text-2xl font-black text-slate-800 font-heading mt-1">
                 {articles
                   .reduce((acc, a) => acc + (a.views || 0), 0)
                   .toLocaleString()}
@@ -491,13 +491,13 @@ export default function AdminArticlesPage() {
           </div>
 
           {/* Language Switcher Tabs Bar */}
-          <div className="flex items-center gap-2 bg-[#090e1c] p-1.5 rounded-2xl border border-white/10 w-fit">
+          <div className="flex items-center gap-2 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm w-fit">
             <button
               onClick={() => setFilterLanguage("All")}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                 filterLanguage === "All"
-                  ? "bg-gradient-to-r from-brand-600 to-cyan-600 text-white shadow-glow"
-                  : "text-slate-400 hover:text-white"
+                  ? "bg-brand-600 text-white shadow-sm"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               }`}
             >
               All Languages ({articles.length})
@@ -506,8 +506,8 @@ export default function AdminArticlesPage() {
               onClick={() => setFilterLanguage("en")}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                 filterLanguage === "en"
-                  ? "bg-blue-600 text-white shadow-glow"
-                  : "text-slate-400 hover:text-white"
+                  ? "bg-brand-600 text-white shadow-sm"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               }`}
             >
               <span>🇬🇧 English</span>
@@ -517,8 +517,8 @@ export default function AdminArticlesPage() {
               onClick={() => setFilterLanguage("ar")}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                 filterLanguage === "ar"
-                  ? "bg-emerald-600 text-white shadow-glow-emerald"
-                  : "text-slate-400 hover:text-white"
+                  ? "bg-brand-600 text-white shadow-sm"
+                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               }`}
             >
               <span>🇸🇦 العربية</span>
@@ -527,7 +527,7 @@ export default function AdminArticlesPage() {
           </div>
 
           {/* Filters & Search Bar */}
-          <div className="rounded-2xl p-4 bg-[#090e1c] border border-white/10 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+          <div className="rounded-2xl p-4 bg-white border border-slate-200 shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
             {/* Search */}
             <div className="relative flex-1 max-w-md">
               <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -536,7 +536,7 @@ export default function AdminArticlesPage() {
                 placeholder="Search articles by title, slug, or keyword..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-900 border border-white/10 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-cyan-500"
+                className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-xs focus:outline-none focus:border-brand-500 focus:bg-white"
               />
             </div>
 
@@ -544,11 +544,11 @@ export default function AdminArticlesPage() {
             <div className="flex flex-wrap items-center gap-3">
               {/* Category */}
               <div className="flex items-center gap-2">
-                <span className="text-xs text-slate-400">Category:</span>
+                <span className="text-xs text-slate-600 font-medium">Category:</span>
                 <select
                   value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value)}
-                  className="px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-xs text-white focus:outline-none focus:border-cyan-500"
+                  className="px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-brand-500 focus:bg-white"
                 >
                   <option value="All">All Categories</option>
                   {categoryOptions.map((c) => (
@@ -561,13 +561,13 @@ export default function AdminArticlesPage() {
 
               {/* Status */}
               <div className="flex items-center gap-2">
-                <span className="text-xs text-slate-400">Status:</span>
+                <span className="text-xs text-slate-600 font-medium">Status:</span>
                 <select
                   value={filterStatus}
                   onChange={(e) =>
                     setFilterStatus(e.target.value as "All" | "Published" | "Draft")
                   }
-                  className="px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-xs text-white focus:outline-none focus:border-cyan-500"
+                  className="px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-brand-500 focus:bg-white"
                 >
                   <option value="All">All Statuses</option>
                   <option value="Published">Published Only</option>
@@ -578,10 +578,10 @@ export default function AdminArticlesPage() {
           </div>
 
           {/* Table Container */}
-          <div className="rounded-3xl border border-white/10 bg-[#090e1c] overflow-hidden shadow-2xl">
+          <div className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-sm">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-slate-900/90 text-slate-400 uppercase font-mono tracking-wider border-b border-white/10">
+                <thead className="bg-slate-50 text-slate-600 uppercase font-mono tracking-wider border-b border-slate-200">
                   <tr>
                     <th className="px-4 py-3.5 font-semibold">Locale</th>
                     <th className="px-5 py-3.5 font-semibold">Article & Title</th>
@@ -592,7 +592,7 @@ export default function AdminArticlesPage() {
                     <th className="px-5 py-3.5 font-semibold text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-slate-100">
                   {filteredArticles.length > 0 ? (
                     filteredArticles.map((article) => {
                       const isAr = article.lang === "ar";
@@ -601,16 +601,16 @@ export default function AdminArticlesPage() {
                         : `/blog/${article.slug}`;
 
                       return (
-                        <tr key={article.id} className="hover:bg-white/[0.02] transition-colors">
+                        <tr key={article.id} className="hover:bg-slate-50/75 transition-colors">
                           {/* Locale Badge */}
                           <td className="px-4 py-4 whitespace-nowrap">
                             {isAr ? (
-                              <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1 w-fit">
+                              <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-brand-50 text-brand-700 border border-brand-200 flex items-center gap-1 w-fit">
                                 <span>🇸🇦</span>
                                 <span>AR</span>
                               </span>
                             ) : (
-                              <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-blue-500/10 text-blue-400 border border-blue-500/30 flex items-center gap-1 w-fit">
+                              <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1 w-fit">
                                 <span>🇬🇧</span>
                                 <span>EN</span>
                               </span>
@@ -620,7 +620,7 @@ export default function AdminArticlesPage() {
                           {/* Article Info */}
                           <td className="px-5 py-4">
                             <div className="flex items-center gap-3">
-                              <div className="relative w-14 h-10 rounded-lg overflow-hidden shrink-0 border border-white/10 bg-slate-800">
+                              <div className="relative w-14 h-10 rounded-lg overflow-hidden shrink-0 border border-slate-200 bg-slate-100">
                                 <Image
                                   src={article.featuredImage}
                                   alt={article.title}
@@ -630,17 +630,17 @@ export default function AdminArticlesPage() {
                               </div>
                               <div className="max-w-md">
                                 <div
-                                  className={`font-bold text-white text-sm line-clamp-1 ${
+                                  className={`font-bold text-slate-900 text-sm line-clamp-1 ${
                                     isAr ? "font-arabic" : ""
                                   }`}
                                 >
                                   {article.title}
                                 </div>
-                                <div className="text-slate-400 text-[11px] font-mono mt-0.5 line-clamp-1">
+                                <div className="text-slate-500 text-[11px] font-mono mt-0.5 line-clamp-1">
                                   {liveUrl}
                                 </div>
                                 {article.focusKeyword && (
-                                  <div className="text-[10px] text-cyan-400 mt-0.5">
+                                  <div className="text-[10px] text-brand-700 font-semibold mt-0.5">
                                     KW: {article.focusKeyword}
                                   </div>
                                 )}
@@ -650,21 +650,21 @@ export default function AdminArticlesPage() {
 
                           {/* Category */}
                           <td className="px-4 py-4">
-                            <span className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 whitespace-nowrap">
+                            <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-brand-50 text-brand-700 border border-brand-200 whitespace-nowrap">
                               {article.category}
                             </span>
                           </td>
 
                           {/* Date */}
-                          <td className="px-4 py-4 text-slate-300 whitespace-nowrap">
-                            <div>
+                          <td className="px-4 py-4 text-slate-600 whitespace-nowrap">
+                            <div className="font-medium text-slate-700">
                               {new Date(article.publishedAt).toLocaleDateString("en-US", {
                                 month: "short",
                                 day: "numeric",
                                 year: "numeric",
                               })}
                             </div>
-                            <div className="text-[10px] text-slate-500">
+                            <div className="text-[10px] text-slate-400">
                               Updated:{" "}
                               {new Date(article.updatedAt).toLocaleDateString("en-US", {
                                 month: "short",
@@ -679,8 +679,8 @@ export default function AdminArticlesPage() {
                               onClick={() => handleToggleStatus(article)}
                               className={`px-2.5 py-1 rounded-full text-[11px] font-bold border transition-all ${
                                 article.isPublished
-                                  ? "bg-growth-500/10 text-growth-400 border-growth-500/30 hover:bg-growth-500/20"
-                                  : "bg-amber-500/10 text-amber-400 border-amber-500/30 hover:bg-amber-500/20"
+                                  ? "bg-brand-50 text-brand-700 border-brand-200 hover:bg-brand-100"
+                                  : "bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100"
                               }`}
                               title="Click to toggle publish status"
                             >
@@ -689,11 +689,11 @@ export default function AdminArticlesPage() {
                           </td>
 
                           {/* Views / Read Time */}
-                          <td className="px-4 py-4 text-slate-300 whitespace-nowrap">
-                            <div className="font-mono text-xs font-bold text-white">
+                          <td className="px-4 py-4 text-slate-600 whitespace-nowrap">
+                            <div className="font-mono text-xs font-bold text-slate-900">
                               {(article.views || 0).toLocaleString()} reads
                             </div>
-                            <div className="text-[10px] text-slate-400">
+                            <div className="text-[10px] text-slate-500">
                               {article.readTime || "5 min read"}
                             </div>
                           </td>
@@ -705,7 +705,7 @@ export default function AdminArticlesPage() {
                               <Link
                                 href={liveUrl}
                                 target="_blank"
-                                className="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-cyan-400 hover:bg-slate-700 transition-colors"
+                                className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:text-brand-700 hover:bg-brand-50 transition-colors"
                                 title="Preview Public Page"
                               >
                                 <ExternalLink className="w-3.5 h-3.5" />
@@ -714,7 +714,7 @@ export default function AdminArticlesPage() {
                               {/* Edit */}
                               <button
                                 onClick={() => handleOpenEdit(article)}
-                                className="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-cyan-600 transition-colors"
+                                className="p-2 rounded-lg bg-slate-100 text-slate-600 hover:text-brand-700 hover:bg-brand-50 transition-colors"
                                 title="Edit Article"
                               >
                                 <Edit3 className="w-3.5 h-3.5" />
@@ -723,7 +723,7 @@ export default function AdminArticlesPage() {
                               {/* Delete */}
                               <button
                                 onClick={() => setDeleteConfirmId(article.id)}
-                                className="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-rose-400 hover:bg-rose-500/20 transition-colors"
+                                className="p-2 rounded-lg bg-slate-100 text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition-colors"
                                 title="Delete Article"
                               >
                                 <Trash2 className="w-3.5 h-3.5" />
@@ -735,7 +735,7 @@ export default function AdminArticlesPage() {
                     })
                   ) : (
                     <tr>
-                      <td colSpan={7} className="px-6 py-12 text-center text-slate-400">
+                      <td colSpan={7} className="px-6 py-12 text-center text-slate-500">
                         No articles found matching criteria.
                       </td>
                     </tr>
@@ -751,10 +751,10 @@ export default function AdminArticlesPage() {
       {viewMode === "form" && (
         <div className="space-y-8">
           {/* Top Form Action Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
             <button
               onClick={() => setViewMode("list")}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Articles Listing</span>
@@ -762,8 +762,8 @@ export default function AdminArticlesPage() {
 
             <div className="flex items-center gap-3">
               {/* Publish / Draft Switch */}
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 border border-white/10 text-xs">
-                <span className="text-slate-400">Status:</span>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+                <span className="text-slate-600 font-medium">Status:</span>
                 <button
                   type="button"
                   onClick={() =>
@@ -771,8 +771,8 @@ export default function AdminArticlesPage() {
                   }
                   className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
                     formData.isPublished
-                      ? "bg-growth-500 text-black shadow-glow-emerald"
-                      : "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                      ? "bg-brand-600 text-white shadow-sm"
+                      : "bg-amber-100 text-amber-800 border border-amber-200"
                   }`}
                 >
                   {formData.isPublished ? "Published (Live)" : "Draft (Hidden)"}
@@ -782,7 +782,7 @@ export default function AdminArticlesPage() {
               {/* Save Button */}
               <button
                 onClick={handleSave}
-                className="flex items-center gap-2 px-6 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-brand-600 via-cyan-600 to-growth-600 shadow-glow hover:opacity-95 transition-all hover:scale-105"
+                className="flex items-center gap-2 px-6 py-2 rounded-xl text-xs sm:text-sm font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-all"
               >
                 <Save className="w-4 h-4" />
                 <span>{editingArticleId ? "Update Article" : "Publish Article"}</span>
@@ -791,29 +791,29 @@ export default function AdminArticlesPage() {
           </div>
 
           {/* DUAL LANGUAGE SELECTOR BOX */}
-          <div className="rounded-3xl p-5 bg-[#090e1c] border border-cyan-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="rounded-3xl p-5 bg-white border border-brand-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center border border-cyan-500/20">
+              <div className="w-10 h-10 rounded-2xl bg-brand-50 text-brand-700 flex items-center justify-center border border-brand-200">
                 <Languages className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-sm font-bold text-white">
+                <div className="text-sm font-bold text-slate-900">
                   Target Language / لغة المقال
                 </div>
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-slate-500">
                   Select the publication locale. Routes and Schema.org will be automatically structured.
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 bg-slate-900 p-1.5 rounded-2xl border border-white/10">
+            <div className="flex items-center gap-2 bg-slate-50 p-1.5 rounded-2xl border border-slate-200">
               <button
                 type="button"
                 onClick={() => setFormData((prev) => ({ ...prev, lang: "en" }))}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
                   (formData.lang || "en") === "en"
-                    ? "bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-glow"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-brand-600 text-white shadow-sm"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                 }`}
               >
                 <span>🇬🇧 English</span>
@@ -824,8 +824,8 @@ export default function AdminArticlesPage() {
                 onClick={() => setFormData((prev) => ({ ...prev, lang: "ar" }))}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
                   formData.lang === "ar"
-                    ? "bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-glow-emerald"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-brand-600 text-white shadow-sm font-arabic"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100 font-arabic"
                 }`}
               >
                 <span>🇸🇦 العربية (Arabic)</span>
@@ -838,9 +838,9 @@ export default function AdminArticlesPage() {
             {/* Primary Form Fields (8 Cols) */}
             <div className="lg:col-span-8 space-y-6">
               {/* Title & Slug */}
-              <div className="rounded-3xl p-6 bg-[#090e1c] border border-white/10 space-y-4">
+              <div className="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm space-y-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-200 uppercase tracking-wider mb-1.5">
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
                     {isFormArabic ? "عنوان المقال (Article Title) *" : "Article Title *"}
                   </label>
                   <input
@@ -853,7 +853,7 @@ export default function AdminArticlesPage() {
                         ? "مثال: دليل السيو التقني لتطبيقات Next.js ومؤشرات Core Web Vitals"
                         : "e.g., Mastering Technical SEO for Next.js App Router"
                     }
-                    className={`w-full px-4 py-3 rounded-2xl bg-slate-900 border border-white/10 text-white font-heading font-bold text-base sm:text-lg focus:outline-none focus:border-cyan-500 ${
+                    className={`w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 font-heading font-bold text-base sm:text-lg focus:outline-none focus:border-brand-500 focus:bg-white ${
                       isFormArabic ? "font-arabic" : ""
                     }`}
                   />
@@ -862,21 +862,21 @@ export default function AdminArticlesPage() {
                 {/* Slug with Auto/Manual toggle */}
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
-                    <label className="text-xs font-bold text-slate-300">
+                    <label className="text-xs font-bold text-slate-700">
                       URL Slug (Permanent Link) *
                     </label>
-                    <label className="flex items-center gap-2 text-xs text-slate-400 cursor-pointer">
+                    <label className="flex items-center gap-2 text-xs text-slate-500 cursor-pointer">
                       <input
                         type="checkbox"
                         checked={isSlugAutoGenerated}
                         onChange={(e) => setIsSlugAutoGenerated(e.target.checked)}
-                        className="rounded accent-cyan-500"
+                        className="rounded accent-brand-600"
                       />
                       <span>Auto-generate from title</span>
                     </label>
                   </div>
-                  <div className="flex items-center rounded-2xl bg-slate-900 border border-white/10 px-3 py-2 text-xs font-mono text-slate-400 overflow-x-auto">
-                    <span className="text-slate-500 select-none whitespace-nowrap">
+                  <div className="flex items-center rounded-2xl bg-slate-50 border border-slate-200 px-3 py-2 text-xs font-mono text-slate-500 overflow-x-auto">
+                    <span className="text-slate-400 select-none whitespace-nowrap">
                       {urlBasePrefix}
                     </span>
                     <input
@@ -892,7 +892,7 @@ export default function AdminArticlesPage() {
                       placeholder={
                         isFormArabic ? "dalil-technical-seo-nextjs" : "mastering-technical-seo-nextjs"
                       }
-                      className="flex-1 bg-transparent text-cyan-300 focus:outline-none font-mono min-w-[200px]"
+                      className="flex-1 bg-transparent text-brand-700 focus:outline-none font-mono min-w-[200px] font-semibold"
                     />
                   </div>
                 </div>
@@ -900,10 +900,10 @@ export default function AdminArticlesPage() {
                 {/* Excerpt */}
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
-                    <label className="text-xs font-bold text-slate-300">
+                    <label className="text-xs font-bold text-slate-700">
                       {isFormArabic ? "موجز المقال (Card Excerpt) *" : "Article Excerpt / Card Summary *"}
                     </label>
-                    <span className="text-[11px] text-slate-500">
+                    <span className="text-[11px] text-slate-500 font-mono">
                       {formData.excerpt.length} characters
                     </span>
                   </div>
@@ -917,7 +917,7 @@ export default function AdminArticlesPage() {
                         ? "اكتب ملخصاً جذاباً للمقال يظهر في بطاقات الأرشيف ونتائج البحث..."
                         : "Concise 2-3 sentence overview that captures the essence of this guide..."
                     }
-                    className={`w-full px-4 py-3 rounded-2xl bg-slate-900 border border-white/10 text-xs sm:text-sm text-slate-200 focus:outline-none focus:border-cyan-500 leading-relaxed ${
+                    className={`w-full px-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-brand-500 focus:bg-white leading-relaxed ${
                       isFormArabic ? "font-arabic" : ""
                     }`}
                   />
@@ -925,23 +925,23 @@ export default function AdminArticlesPage() {
               </div>
 
               {/* Content Markdown Editor */}
-              <div className="rounded-3xl p-6 bg-[#090e1c] border border-white/10 space-y-4">
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <div className="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                   <div className="flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-cyan-400" />
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">
+                    <FileText className="w-4 h-4 text-brand-600" />
+                    <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                       Article Body (Markdown & HTML Supported)
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-1 bg-slate-900 p-1 rounded-xl border border-white/10">
+                  <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
                     <button
                       type="button"
                       onClick={() => setEditorTab("write")}
                       className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors ${
                         editorTab === "write"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : "text-slate-400 hover:text-white"
+                          ? "bg-brand-600 text-white shadow-sm"
+                          : "text-slate-600 hover:text-slate-900"
                       }`}
                     >
                       Write
@@ -951,8 +951,8 @@ export default function AdminArticlesPage() {
                       onClick={() => setEditorTab("preview")}
                       className={`px-3 py-1 rounded-lg text-xs font-semibold transition-colors ${
                         editorTab === "preview"
-                          ? "bg-cyan-500/20 text-cyan-300"
-                          : "text-slate-400 hover:text-white"
+                          ? "bg-brand-600 text-white shadow-sm"
+                          : "text-slate-600 hover:text-slate-900"
                       }`}
                     >
                       Preview
@@ -963,11 +963,11 @@ export default function AdminArticlesPage() {
                 {editorTab === "write" ? (
                   <div className="space-y-3">
                     {/* Markdown Quick Toolbar */}
-                    <div className="flex flex-wrap items-center gap-1.5 p-2 rounded-xl bg-slate-900 border border-white/10 text-slate-300 text-xs">
+                    <div className="flex flex-wrap items-center gap-1.5 p-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-600 text-xs">
                       <button
                         type="button"
                         onClick={() => insertMarkdown("## ", "\n")}
-                        className="p-1.5 rounded hover:bg-slate-800 hover:text-cyan-400"
+                        className="p-1.5 rounded hover:bg-slate-200 hover:text-brand-700"
                         title="Heading 2"
                       >
                         <Heading2 className="w-4 h-4" />
@@ -975,16 +975,16 @@ export default function AdminArticlesPage() {
                       <button
                         type="button"
                         onClick={() => insertMarkdown("### ", "\n")}
-                        className="p-1.5 rounded hover:bg-slate-800 hover:text-cyan-400"
+                        className="p-1.5 rounded hover:bg-slate-200 hover:text-brand-700"
                         title="Heading 3"
                       >
                         <Heading3 className="w-4 h-4" />
                       </button>
-                      <span className="w-[1px] h-4 bg-white/10 mx-1" />
+                      <span className="w-[1px] h-4 bg-slate-200 mx-1" />
                       <button
                         type="button"
                         onClick={() => insertMarkdown("**", "**")}
-                        className="p-1.5 rounded hover:bg-slate-800 hover:text-cyan-400"
+                        className="p-1.5 rounded hover:bg-slate-200 hover:text-brand-700"
                         title="Bold"
                       >
                         <Bold className="w-4 h-4" />
@@ -992,7 +992,7 @@ export default function AdminArticlesPage() {
                       <button
                         type="button"
                         onClick={() => insertMarkdown("*", "*")}
-                        className="p-1.5 rounded hover:bg-slate-800 hover:text-cyan-400"
+                        className="p-1.5 rounded hover:bg-slate-200 hover:text-brand-700"
                         title="Italic"
                       >
                         <Italic className="w-4 h-4" />
@@ -1000,7 +1000,7 @@ export default function AdminArticlesPage() {
                       <button
                         type="button"
                         onClick={() => insertMarkdown("`", "`")}
-                        className="p-1.5 rounded hover:bg-slate-800 hover:text-cyan-400"
+                        className="p-1.5 rounded hover:bg-slate-200 hover:text-brand-700"
                         title="Inline Code"
                       >
                         <Code className="w-4 h-4" />
@@ -1008,16 +1008,16 @@ export default function AdminArticlesPage() {
                       <button
                         type="button"
                         onClick={() => insertMarkdown("```tsx\n", "\n```")}
-                        className="p-1.5 rounded hover:bg-slate-800 hover:text-cyan-400 text-[11px] font-mono"
+                        className="p-1.5 rounded hover:bg-slate-200 hover:text-brand-700 text-[11px] font-mono"
                         title="Code Block"
                       >
                         {"{ }"}
                       </button>
-                      <span className="w-[1px] h-4 bg-white/10 mx-1" />
+                      <span className="w-[1px] h-4 bg-slate-200 mx-1" />
                       <button
                         type="button"
                         onClick={() => insertMarkdown("- ", "")}
-                        className="p-1.5 rounded hover:bg-slate-800 hover:text-cyan-400"
+                        className="p-1.5 rounded hover:bg-slate-200 hover:text-brand-700"
                         title="Bullet List"
                       >
                         <List className="w-4 h-4" />
@@ -1025,7 +1025,7 @@ export default function AdminArticlesPage() {
                       <button
                         type="button"
                         onClick={() => insertMarkdown("> ", "")}
-                        className="p-1.5 rounded hover:bg-slate-800 hover:text-cyan-400"
+                        className="p-1.5 rounded hover:bg-slate-200 hover:text-brand-700"
                         title="Quote"
                       >
                         <Quote className="w-4 h-4" />
@@ -1033,7 +1033,7 @@ export default function AdminArticlesPage() {
                       <button
                         type="button"
                         onClick={() => insertMarkdown("[link title](", ")")}
-                        className="p-1.5 rounded hover:bg-slate-800 hover:text-cyan-400"
+                        className="p-1.5 rounded hover:bg-slate-200 hover:text-brand-700"
                         title="Link"
                       >
                         <LinkIcon className="w-4 h-4" />
@@ -1051,15 +1051,15 @@ export default function AdminArticlesPage() {
                           ? "اكتب محتوى المقال بتنسيق ماركداون هنا..."
                           : "Write your article in markdown..."
                       }
-                      className={`w-full p-4 rounded-2xl bg-slate-900 border border-white/10 text-white font-mono text-xs sm:text-sm focus:outline-none focus:border-cyan-500 leading-relaxed ${
+                      className={`w-full p-4 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 font-mono text-xs sm:text-sm focus:outline-none focus:border-brand-500 focus:bg-white leading-relaxed ${
                         isFormArabic ? "font-arabic" : ""
                       }`}
                     />
 
-                    <div className="flex items-center justify-between text-xs text-slate-400 pt-1">
+                    <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
                       <span>
                         Estimated Read Time:{" "}
-                        <strong className="text-white">{formData.readTime}</strong>
+                        <strong className="text-slate-900 font-semibold">{formData.readTime}</strong>
                       </span>
                       <span>
                         Words: {formData.content.split(/\s+/).filter(Boolean).length}
@@ -1069,7 +1069,7 @@ export default function AdminArticlesPage() {
                 ) : (
                   <div
                     dir={isFormArabic ? "rtl" : "ltr"}
-                    className={`p-6 rounded-2xl bg-[#060913] border border-white/10 min-h-[400px] ${
+                    className={`p-6 rounded-2xl bg-[#f8fafc] border border-slate-200 min-h-[400px] ${
                       isFormArabic ? "font-arabic" : ""
                     }`}
                   >
@@ -1079,24 +1079,24 @@ export default function AdminArticlesPage() {
               </div>
 
               {/* DEDICATED TECHNICAL SEO SETTINGS (COLLAPSIBLE) */}
-              <div className="rounded-3xl border border-cyan-500/30 bg-[#090e1c] overflow-hidden shadow-2xl">
+              <div className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-sm">
                 <button
                   type="button"
                   onClick={() => setSeoSectionOpen(!seoSectionOpen)}
-                  className="w-full flex items-center justify-between p-6 bg-slate-900/50 hover:bg-slate-900 transition-colors"
+                  className="w-full flex items-center justify-between p-6 bg-slate-50 hover:bg-slate-100/80 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center">
                       <Globe className="w-4 h-4" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-heading font-extrabold text-sm sm:text-base text-white flex items-center gap-2">
+                      <h3 className="font-heading font-extrabold text-sm sm:text-base text-slate-900 flex items-center gap-2">
                         <span>Advanced Technical SEO & Schema Configuration</span>
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-brand-50 text-brand-700 border border-brand-200 font-semibold">
                           {isFormArabic ? "العربية (ar)" : "English (en)"}
                         </span>
                       </h3>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-[11px] text-slate-500">
                         Meta title, description, character counters, canonicals, and FAQ structured data.
                       </p>
                     </div>
@@ -1109,10 +1109,10 @@ export default function AdminArticlesPage() {
                 </button>
 
                 {seoSectionOpen && (
-                  <div className="p-6 space-y-6 border-t border-white/10">
+                  <div className="p-6 space-y-6 border-t border-slate-200">
                     {/* Focus Keyword */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-200 mb-1">
+                      <label className="block text-xs font-bold text-slate-700 mb-1">
                         Primary Focus Keyword
                       </label>
                       <input
@@ -1127,14 +1127,14 @@ export default function AdminArticlesPage() {
                             ? "مثال: السيو التقني لتطبيقات Next.js"
                             : "e.g., Technical SEO for Next.js"
                         }
-                        className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-xs text-white focus:outline-none focus:border-cyan-500"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-brand-500 focus:bg-white"
                       />
                     </div>
 
                     {/* Meta Title with character gauge */}
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <label className="text-xs font-bold text-slate-200">
+                        <label className="text-xs font-bold text-slate-700">
                           Meta Title Tag (SERP Display)
                         </label>
                         <span className={`text-xs font-mono font-bold ${getTitleStatusColor()}`}>
@@ -1156,14 +1156,14 @@ export default function AdminArticlesPage() {
                             ? "دليل السيو التقني لتطبيقات Next.js | أسامة الجندي"
                             : "Mastering Technical SEO for Next.js App Router | Osama Elgendy"
                         }
-                        className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-xs text-white focus:outline-none focus:border-cyan-500"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-brand-500 focus:bg-white"
                       />
                       {/* Visual gauge */}
-                      <div className="w-full h-1.5 bg-slate-800 rounded-full mt-2 overflow-hidden">
+                      <div className="w-full h-1.5 bg-slate-200 rounded-full mt-2 overflow-hidden">
                         <div
                           className={`h-full transition-all duration-300 ${
                             metaTitleLength >= 45 && metaTitleLength <= 60
-                              ? "bg-growth-500"
+                              ? "bg-brand-600"
                               : metaTitleLength > 60
                               ? "bg-rose-500"
                               : "bg-amber-500"
@@ -1178,7 +1178,7 @@ export default function AdminArticlesPage() {
                     {/* Meta Description with character gauge */}
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <label className="text-xs font-bold text-slate-200">
+                        <label className="text-xs font-bold text-slate-700">
                           Meta Description
                         </label>
                         <span className={`text-xs font-mono font-bold ${getDescStatusColor()}`}>
@@ -1200,14 +1200,14 @@ export default function AdminArticlesPage() {
                             ? "اكتب وصفاً جذاباً يتضمن الكلمة المفتاحية ويحفز الزائر على النقر..."
                             : "Write a high-CTR, commercial meta description that incorporates the focus keyword..."
                         }
-                        className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-xs text-white focus:outline-none focus:border-cyan-500 leading-relaxed"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-brand-500 focus:bg-white leading-relaxed"
                       />
                       {/* Visual gauge */}
-                      <div className="w-full h-1.5 bg-slate-800 rounded-full mt-2 overflow-hidden">
+                      <div className="w-full h-1.5 bg-slate-200 rounded-full mt-2 overflow-hidden">
                         <div
                           className={`h-full transition-all duration-300 ${
                             metaDescLength >= 140 && metaDescLength <= 160
-                              ? "bg-growth-500"
+                              ? "bg-brand-600"
                               : metaDescLength > 160
                               ? "bg-rose-500"
                               : "bg-amber-500"
@@ -1222,7 +1222,7 @@ export default function AdminArticlesPage() {
                     {/* Canonical URL & Alternate Translation Slug */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold text-slate-200 mb-1">
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
                           Canonical URL (Optional Override)
                         </label>
                         <input
@@ -1232,12 +1232,12 @@ export default function AdminArticlesPage() {
                             setFormData((prev) => ({ ...prev, canonicalUrl: e.target.value }))
                           }
                           placeholder={`${urlBasePrefix}${formData.slug || "slug"}`}
-                          className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-xs text-slate-300 focus:outline-none focus:border-cyan-500 font-mono"
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-brand-500 focus:bg-white font-mono"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-slate-200 mb-1">
+                        <label className="block text-xs font-bold text-slate-700 mb-1">
                           Alternate Translation Slug (hreflang target)
                         </label>
                         <input
@@ -1251,27 +1251,27 @@ export default function AdminArticlesPage() {
                               ? "mastering-technical-seo-nextjs"
                               : "dalil-technical-seo-nextjs"
                           }
-                          className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-xs text-slate-300 focus:outline-none focus:border-cyan-500 font-mono"
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:outline-none focus:border-brand-500 focus:bg-white font-mono"
                         />
                       </div>
                     </div>
 
                     {/* GOOGLE SERP PREVIEW BOX */}
-                    <div className="p-5 rounded-2xl bg-[#060913] border border-white/10 space-y-3">
-                      <div className="flex items-center justify-between pb-2 border-b border-white/10">
-                        <span className="text-xs font-bold text-slate-200 flex items-center gap-2">
-                          <Eye className="w-3.5 h-3.5 text-cyan-400" />
+                    <div className="p-5 rounded-2xl bg-[#f8fafc] border border-slate-200 space-y-3">
+                      <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+                        <span className="text-xs font-bold text-slate-700 flex items-center gap-2">
+                          <Eye className="w-3.5 h-3.5 text-brand-600" />
                           <span>Google SERP Snippet Preview ({isFormArabic ? "Google.com.sa" : "Google.com"})</span>
                         </span>
 
-                        <div className="flex items-center rounded-lg bg-slate-900 p-0.5 border border-white/10">
+                        <div className="flex items-center rounded-lg bg-white p-0.5 border border-slate-200">
                           <button
                             type="button"
                             onClick={() => setSerpDevice("desktop")}
                             className={`px-2.5 py-1 rounded text-[11px] font-semibold flex items-center gap-1 transition-all ${
                               serpDevice === "desktop"
-                                ? "bg-cyan-500/20 text-cyan-300"
-                                : "text-slate-400"
+                                ? "bg-brand-600 text-white shadow-sm"
+                                : "text-slate-600 hover:text-slate-900"
                             }`}
                           >
                             <Monitor className="w-3 h-3" />
@@ -1282,8 +1282,8 @@ export default function AdminArticlesPage() {
                             onClick={() => setSerpDevice("mobile")}
                             className={`px-2.5 py-1 rounded text-[11px] font-semibold flex items-center gap-1 transition-all ${
                               serpDevice === "mobile"
-                                ? "bg-cyan-500/20 text-cyan-300"
-                                : "text-slate-400"
+                                ? "bg-brand-600 text-white shadow-sm"
+                                : "text-slate-600 hover:text-slate-900"
                             }`}
                           >
                             <Smartphone className="w-3 h-3" />
@@ -1295,23 +1295,23 @@ export default function AdminArticlesPage() {
                       {/* Google Card Simulator */}
                       <div
                         dir={isFormArabic ? "rtl" : "ltr"}
-                        className={`p-4 rounded-xl bg-[#202124] text-start font-sans transition-all ${
+                        className={`p-4 rounded-xl bg-white border border-slate-200 text-start font-sans shadow-sm transition-all ${
                           serpDevice === "mobile" ? "max-w-sm mx-auto" : "w-full"
                         }`}
                       >
-                        <div className="flex items-center gap-2 mb-1 text-[11px] text-[#bdc1c6]">
-                          <div className="w-4 h-4 rounded-full bg-cyan-500/20 flex items-center justify-center text-[9px] font-bold text-cyan-400">
+                        <div className="flex items-center gap-2 mb-1 text-[11px] text-slate-500">
+                          <div className="w-4 h-4 rounded-full bg-brand-100 flex items-center justify-center text-[9px] font-bold text-brand-700">
                             OE
                           </div>
                           <span>osamaelgendy.com</span>
-                          <span className="text-slate-500">
+                          <span className="text-slate-400">
                             › {isFormArabic ? "ar › blog" : "blog"} › {formData.slug || "slug"}
                           </span>
                         </div>
-                        <h4 className="text-base sm:text-lg text-[#8ab4f8] hover:underline cursor-pointer font-medium leading-snug">
+                        <h4 className="text-base sm:text-lg text-[#1a0dab] hover:underline cursor-pointer font-medium leading-snug">
                           {formData.metaTitle || formData.title || "Article Title Preview"}
                         </h4>
-                        <p className="text-xs sm:text-sm text-[#bdc1c6] mt-1 leading-relaxed line-clamp-2">
+                        <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed line-clamp-2">
                           {formData.metaDescription ||
                             formData.excerpt ||
                             "Add a meta description to see how your article snippet will appear to search engine users on Google..."}
@@ -1320,14 +1320,14 @@ export default function AdminArticlesPage() {
                     </div>
 
                     {/* DYNAMIC FAQ BUILDER */}
-                    <div className="space-y-4 pt-4 border-t border-white/10">
+                    <div className="space-y-4 pt-4 border-t border-slate-200">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                            <HelpCircle className="w-3.5 h-3.5 text-cyan-400" />
+                          <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+                            <HelpCircle className="w-3.5 h-3.5 text-brand-600" />
                             <span>FAQ Schema Builder ({formData.faqItems?.length || 0})</span>
                           </h4>
-                          <p className="text-[11px] text-slate-400">
+                          <p className="text-[11px] text-slate-500">
                             Auto-generates localized Google FAQPage Schema.org structured data.
                           </p>
                         </div>
@@ -1335,7 +1335,7 @@ export default function AdminArticlesPage() {
                         <button
                           type="button"
                           onClick={handleAddFaqItem}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 border border-cyan-500/30 text-xs font-semibold"
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-50 text-brand-700 hover:bg-brand-100 border border-brand-200 text-xs font-semibold"
                         >
                           <Plus className="w-3.5 h-3.5" />
                           <span>Add Q&A Pair</span>
@@ -1346,16 +1346,16 @@ export default function AdminArticlesPage() {
                         {formData.faqItems?.map((faq, index) => (
                           <div
                             key={faq.id || index}
-                            className="p-4 rounded-2xl bg-slate-900 border border-white/10 space-y-2 relative"
+                            className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 relative"
                           >
                             <div className="flex items-center justify-between">
-                              <span className="text-[11px] font-mono text-cyan-400 font-bold">
+                              <span className="text-[11px] font-mono text-brand-700 font-bold">
                                 FAQ #{index + 1}
                               </span>
                               <button
                                 type="button"
                                 onClick={() => handleRemoveFaqItem(index)}
-                                className="text-slate-500 hover:text-rose-400 p-1"
+                                className="text-slate-400 hover:text-rose-600 p-1"
                                 title="Remove FAQ"
                               >
                                 <X className="w-3.5 h-3.5" />
@@ -1373,7 +1373,7 @@ export default function AdminArticlesPage() {
                                   ? "السؤال (مثال: ما أهمية السيو التقني لتطبيقات Next.js؟)"
                                   : "Question (e.g. How does this improve Core Web Vitals?)"
                               }
-                              className="w-full px-3 py-2 rounded-xl bg-[#090e1c] border border-white/10 text-xs text-white focus:outline-none focus:border-cyan-500"
+                              className="w-full px-3 py-2 rounded-xl bg-white border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-brand-500"
                             />
                             <textarea
                               rows={2}
@@ -1387,7 +1387,7 @@ export default function AdminArticlesPage() {
                                   ? "إجابة محددة ومباشرة تظهر في نتائج الأسئلة الشائعة..."
                                   : "Direct authoritative answer..."
                               }
-                              className="w-full px-3 py-2 rounded-xl bg-[#090e1c] border border-white/10 text-xs text-white focus:outline-none focus:border-cyan-500 leading-relaxed"
+                              className="w-full px-3 py-2 rounded-xl bg-white border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-brand-500 leading-relaxed"
                             />
                           </div>
                         ))}
@@ -1401,16 +1401,16 @@ export default function AdminArticlesPage() {
             {/* Sidebar Form Settings (4 Cols) */}
             <div className="lg:col-span-4 space-y-6">
               {/* Featured Image Selector & Preview */}
-              <div className="rounded-3xl p-6 bg-[#090e1c] border border-white/10 space-y-4">
-                <div className="flex items-center gap-2 pb-2 border-b border-white/10">
-                  <ImageIcon className="w-4 h-4 text-cyan-400" />
-                  <span className="text-xs font-bold text-white uppercase tracking-wider">
+              <div className="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
+                  <ImageIcon className="w-4 h-4 text-brand-600" />
+                  <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                     Featured Media
                   </span>
                 </div>
 
                 {/* Preview Box */}
-                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-white/10 bg-slate-900 shadow-inner">
+                <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-inner">
                   {formData.featuredImage ? (
                     <Image
                       src={formData.featuredImage}
@@ -1419,7 +1419,7 @@ export default function AdminArticlesPage() {
                       className="object-cover"
                     />
                   ) : (
-                    <div className="flex items-center justify-center h-full text-slate-500 text-xs">
+                    <div className="flex items-center justify-center h-full text-slate-400 text-xs">
                       No Image Selected
                     </div>
                   )}
@@ -1427,7 +1427,7 @@ export default function AdminArticlesPage() {
 
                 {/* Image URL Input */}
                 <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">
+                  <label className="block text-xs font-medium text-slate-700 mb-1">
                     Image URL
                   </label>
                   <input
@@ -1437,13 +1437,13 @@ export default function AdminArticlesPage() {
                       setFormData((prev) => ({ ...prev, featuredImage: e.target.value }))
                     }
                     placeholder="/images/nextjs-technical-seo.jpg"
-                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-white/10 text-xs text-white font-mono focus:outline-none focus:border-cyan-500"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 font-mono focus:outline-none focus:border-brand-500 focus:bg-white"
                   />
                 </div>
 
                 {/* Presets */}
                 <div>
-                  <span className="block text-[11px] font-semibold text-slate-400 mb-2">
+                  <span className="block text-[11px] font-semibold text-slate-500 mb-2">
                     Or select high-res preset:
                   </span>
                   <div className="grid grid-cols-2 gap-2">
@@ -1456,8 +1456,8 @@ export default function AdminArticlesPage() {
                         }
                         className={`p-2 rounded-xl text-left border text-[11px] transition-all ${
                           formData.featuredImage === img.url
-                            ? "bg-cyan-500/20 border-cyan-500 text-cyan-300"
-                            : "bg-slate-900 border-white/5 text-slate-400 hover:text-white"
+                            ? "bg-brand-50 border-brand-500 text-brand-700 font-bold shadow-sm"
+                            : "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                         }`}
                       >
                         <span className="line-clamp-1">{img.label}</span>
@@ -1468,17 +1468,17 @@ export default function AdminArticlesPage() {
               </div>
 
               {/* Taxonomy: Category & Tags */}
-              <div className="rounded-3xl p-6 bg-[#090e1c] border border-white/10 space-y-4">
-                <div className="flex items-center gap-2 pb-2 border-b border-white/10">
-                  <Tag className="w-4 h-4 text-cyan-400" />
-                  <span className="text-xs font-bold text-white uppercase tracking-wider">
+              <div className="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm space-y-4">
+                <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
+                  <Tag className="w-4 h-4 text-brand-600" />
+                  <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                     Taxonomy & Tags
                   </span>
                 </div>
 
                 {/* Category */}
                 <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">
+                  <label className="block text-xs font-medium text-slate-700 mb-1">
                     Category *
                   </label>
                   <select
@@ -1486,7 +1486,7 @@ export default function AdminArticlesPage() {
                     onChange={(e) =>
                       setFormData((prev) => ({ ...prev, category: e.target.value }))
                     }
-                    className="w-full px-3 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-xs text-white focus:outline-none focus:border-cyan-500"
+                    className="w-full px-3 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-brand-500 focus:bg-white"
                   >
                     {categoryOptions.map((cat) => (
                       <option key={cat} value={cat}>
@@ -1498,7 +1498,7 @@ export default function AdminArticlesPage() {
 
                 {/* Tags */}
                 <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-1">
+                  <label className="block text-xs font-medium text-slate-700 mb-1">
                     Tags (Press Enter or click Add)
                   </label>
                   <div className="flex items-center gap-2 mb-2">
@@ -1513,12 +1513,12 @@ export default function AdminArticlesPage() {
                         }
                       }}
                       placeholder={isFormArabic ? "أضف وسماً (مثال: سيو سلة)..." : "Add tag (e.g. Next.js)..."}
-                      className="flex-1 px-3 py-2 rounded-xl bg-slate-900 border border-white/10 text-xs text-white focus:outline-none focus:border-cyan-500"
+                      className="flex-1 px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-brand-500 focus:bg-white"
                     />
                     <button
                       type="button"
                       onClick={handleAddTag}
-                      className="px-3 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 text-xs font-semibold"
+                      className="px-3 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 text-xs font-semibold"
                     >
                       Add
                     </button>
@@ -1528,13 +1528,13 @@ export default function AdminArticlesPage() {
                     {formData.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/5 text-slate-300 text-xs border border-white/5"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs border border-slate-200"
                       >
                         <span>#{tag}</span>
                         <button
                           type="button"
                           onClick={() => handleRemoveTag(tag)}
-                          className="text-slate-500 hover:text-rose-400"
+                          className="text-slate-400 hover:text-rose-600"
                         >
                           <X className="w-3 h-3" />
                         </button>
@@ -1545,33 +1545,33 @@ export default function AdminArticlesPage() {
               </div>
 
               {/* Publish Date and Meta Card */}
-              <div className="rounded-3xl p-6 bg-[#090e1c] border border-white/10 space-y-4 text-xs">
-                <div className="font-bold text-white border-b border-white/10 pb-2">
+              <div className="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm space-y-4 text-xs">
+                <div className="font-bold text-slate-900 border-b border-slate-200 pb-2">
                   Publish Information
                 </div>
 
-                <div className="flex items-center justify-between text-slate-400">
+                <div className="flex items-center justify-between text-slate-500">
                   <span>Author</span>
-                  <strong className="text-white">Osama Elgendy</strong>
+                  <strong className="text-slate-900">Osama Elgendy</strong>
                 </div>
 
-                <div className="flex items-center justify-between text-slate-400">
+                <div className="flex items-center justify-between text-slate-500">
                   <span>Language</span>
-                  <strong className={isFormArabic ? "text-emerald-400" : "text-blue-400"}>
+                  <strong className={isFormArabic ? "text-brand-700" : "text-brand-600"}>
                     {isFormArabic ? "Arabic (/ar/blog)" : "English (/blog)"}
                   </strong>
                 </div>
 
-                <div className="flex items-center justify-between text-slate-400">
+                <div className="flex items-center justify-between text-slate-500">
                   <span>Current Views</span>
-                  <strong className="text-cyan-400">
+                  <strong className="text-slate-900">
                     {(formData.views || 0).toLocaleString()} reads
                   </strong>
                 </div>
 
-                <div className="flex items-center justify-between text-slate-400">
+                <div className="flex items-center justify-between text-slate-500">
                   <span>Created / Published</span>
-                  <span className="text-slate-300">
+                  <span className="text-slate-700">
                     {new Date(formData.publishedAt).toLocaleDateString()}
                   </span>
                 </div>
@@ -1580,7 +1580,7 @@ export default function AdminArticlesPage() {
                   <button
                     type="button"
                     onClick={handleSave}
-                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-brand-600 via-cyan-600 to-growth-600 shadow-glow hover:opacity-95 transition-all"
+                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-all"
                   >
                     <Save className="w-4 h-4" />
                     <span>Save & Update Article</span>

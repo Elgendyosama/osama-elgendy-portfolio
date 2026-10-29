@@ -25,8 +25,8 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
         elements.push(
           <ul key={key} className="my-5 space-y-2.5 pl-2">
             {listBuffer.items.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-slate-300 text-sm sm:text-base leading-relaxed">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2.5 shrink-0 shadow-[0_0_8px_rgba(56,189,248,0.8)]" />
+              <li key={i} className="flex items-start gap-3 text-slate-700 text-sm sm:text-base leading-relaxed">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-600 mt-2.5 shrink-0 shadow-[0_0_8px_rgba(34,163,68,0.4)]" />
                 <span>{renderInline(item)}</span>
               </li>
             ))}
@@ -36,8 +36,8 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
         elements.push(
           <ol key={key} className="my-5 space-y-2.5 pl-2">
             {listBuffer.items.map((item, i) => (
-              <li key={i} className="flex items-start gap-3 text-slate-300 text-sm sm:text-base leading-relaxed">
-                <span className="flex items-center justify-center w-5 h-5 rounded-md bg-cyan-500/10 text-cyan-400 font-mono text-xs font-bold shrink-0 border border-cyan-500/20">
+              <li key={i} className="flex items-start gap-3 text-slate-700 text-sm sm:text-base leading-relaxed">
+                <span className="flex items-center justify-center w-5 h-5 rounded-md bg-brand-50 text-brand-700 font-mono text-xs font-bold shrink-0 border border-brand-200">
                   {i + 1}
                 </span>
                 <span>{renderInline(item)}</span>
@@ -68,9 +68,9 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
       );
 
       elements.push(
-        <div key={key} className="my-6 overflow-x-auto rounded-xl border border-white/10 bg-[#0c1222]/80">
+        <div key={key} className="my-6 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
           <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="bg-slate-900/90 text-cyan-300 border-b border-white/10">
+            <thead className="bg-slate-50 text-slate-900 border-b border-slate-200">
               <tr>
                 {headers.map((h, i) => (
                   <th key={i} className="px-4 py-3 font-semibold">
@@ -79,11 +79,11 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/5">
+            <tbody className="divide-y divide-slate-100">
               {rows.map((row, rIdx) => (
-                <tr key={rIdx} className="hover:bg-white/[0.02]">
+                <tr key={rIdx} className="hover:bg-slate-50/50">
                   {row.map((cell, cIdx) => (
-                    <td key={cIdx} className="px-4 py-3 text-slate-300">
+                    <td key={cIdx} className="px-4 py-3 text-slate-700">
                       {renderInline(cell)}
                     </td>
                   ))}
@@ -174,12 +174,12 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
           <h3
             key={`h3-${i}`}
             id={id}
-            className="text-lg sm:text-xl font-heading font-bold text-slate-100 mt-8 mb-3 scroll-mt-24 flex items-center gap-2 group"
+            className="text-lg sm:text-xl font-heading font-bold text-slate-900 mt-8 mb-3 scroll-mt-24 flex items-center gap-2 group"
           >
             <span>{renderInline(title)}</span>
             <a
               href={`#${id}`}
-              className="opacity-0 group-hover:opacity-100 text-cyan-400 hover:text-cyan-300 transition-opacity text-sm"
+              className="opacity-0 group-hover:opacity-100 text-brand-600 hover:text-brand-700 transition-opacity text-sm"
               aria-label={`Anchor link for ${title}`}
             >
               #
@@ -196,12 +196,12 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
           <h2
             key={`h2-${i}`}
             id={id}
-            className="text-xl sm:text-2xl lg:text-3xl font-heading font-extrabold text-white mt-12 mb-4 scroll-mt-24 border-b border-white/10 pb-2.5 flex items-center justify-between group"
+            className="text-xl sm:text-2xl lg:text-3xl font-heading font-extrabold text-slate-900 mt-12 mb-4 scroll-mt-24 border-b border-slate-200 pb-2.5 flex items-center justify-between group"
           >
             <span>{renderInline(title)}</span>
             <a
               href={`#${id}`}
-              className="opacity-0 group-hover:opacity-100 text-cyan-400 hover:text-cyan-300 transition-opacity text-base font-normal"
+              className="opacity-0 group-hover:opacity-100 text-brand-600 hover:text-brand-700 transition-opacity text-base font-normal"
               aria-label={`Anchor link for ${title}`}
             >
               #
@@ -216,7 +216,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
         elements.push(
           <hr
             key={`hr-${i}`}
-            className="my-10 border-0 h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent"
+            className="my-10 border-0 h-[1px] bg-slate-200"
           />
         );
         continue;
@@ -227,7 +227,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
         elements.push(
           <blockquote
             key={`quote-${i}`}
-            className="my-6 pl-4 py-2 border-l-2 border-cyan-400 bg-cyan-950/20 rounded-r-xl text-slate-300 italic text-sm sm:text-base"
+            className="my-6 pl-4 py-2 border-l-2 border-brand-500 bg-brand-50/50 rounded-r-xl text-slate-700 italic text-sm sm:text-base"
           >
             {renderInline(line.replace(/^>\s*/, ""))}
           </blockquote>
@@ -239,7 +239,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
       elements.push(
         <p
           key={`p-${i}`}
-          className="text-slate-300 text-sm sm:text-base leading-relaxed my-4 font-normal"
+          className="text-slate-700 text-sm sm:text-base leading-relaxed my-4 font-normal"
         >
           {renderInline(line)}
         </p>
@@ -295,14 +295,14 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
         parts.push(
           <code
             key={`inline-code-${keyIdx++}`}
-            className="px-1.5 py-0.5 rounded-md bg-slate-800 text-cyan-300 font-mono text-xs border border-white/10"
+            className="px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-800 font-mono text-xs border border-slate-200"
           >
             {earliest.match[1]}
           </code>
         );
       } else if (earliest.type === "bold") {
         parts.push(
-          <strong key={`inline-bold-${keyIdx++}`} className="font-bold text-white">
+          <strong key={`inline-bold-${keyIdx++}`} className="font-bold text-slate-900">
             {earliest.match[1]}
           </strong>
         );
@@ -313,14 +313,14 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
             href={earliest.match[2]}
             target={earliest.match[2].startsWith("http") ? "_blank" : undefined}
             rel={earliest.match[2].startsWith("http") ? "noopener noreferrer" : undefined}
-            className="text-cyan-400 hover:text-cyan-300 underline underline-offset-4 font-medium transition-colors"
+            className="text-brand-600 hover:text-brand-700 underline underline-offset-4 font-semibold transition-colors"
           >
             {earliest.match[1]}
           </a>
         );
       } else if (earliest.type === "italic") {
         parts.push(
-          <em key={`inline-italic-${keyIdx++}`} className="italic text-slate-200">
+          <em key={`inline-italic-${keyIdx++}`} className="italic text-slate-700">
             {earliest.match[1]}
           </em>
         );
@@ -350,27 +350,27 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language }) => {
   };
 
   return (
-    <div className="my-6 rounded-2xl overflow-hidden border border-white/10 bg-[#080d1a] shadow-2xl">
+    <div className="my-6 rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 shadow-md">
       {/* Code Header Bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900/90 border-b border-white/10 text-xs">
-        <div className="flex items-center gap-2 text-slate-400">
-          <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-          <span className="font-mono uppercase text-[11px] tracking-wider font-semibold text-slate-300">
+      <div className="flex items-center justify-between px-4 py-2.5 bg-slate-800 border-b border-slate-700 text-xs">
+        <div className="flex items-center gap-2 text-slate-300">
+          <Terminal className="w-3.5 h-3.5 text-brand-400" />
+          <span className="font-mono uppercase text-[11px] tracking-wider font-semibold text-slate-200">
             {language || "code"}
           </span>
         </div>
         <button
           onClick={handleCopy}
-          className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all text-xs font-medium"
+          className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 text-slate-200 hover:text-white transition-all text-xs font-medium"
         >
           {copied ? (
             <>
-              <Check className="w-3.5 h-3.5 text-growth-400" />
-              <span className="text-growth-400">Copied!</span>
+              <Check className="w-3.5 h-3.5 text-brand-400" />
+              <span className="text-brand-400 font-bold">Copied!</span>
             </>
           ) : (
             <>
-              <Copy className="w-3.5 h-3.5" />
+              <Copy className="w-3.5 h-3.5 text-slate-300" />
               <span>Copy</span>
             </>
           )}
@@ -378,7 +378,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ code, language }) => {
       </div>
 
       {/* Code Text Content */}
-      <pre className="p-4 sm:p-5 overflow-x-auto text-xs sm:text-sm font-mono text-cyan-100 leading-relaxed bg-[#060913]/90">
+      <pre className="p-4 sm:p-5 overflow-x-auto text-xs sm:text-sm font-mono text-emerald-300 leading-relaxed bg-slate-950/90">
         <code>{code}</code>
       </pre>
     </div>

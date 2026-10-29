@@ -138,42 +138,37 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
   return (
     <div
       dir={isAr ? "rtl" : "ltr"}
-      className={`min-h-screen bg-[#060913] text-slate-100 ${
+      className={`min-h-screen bg-[#f8fafc] text-slate-900 ${
         isAr ? "font-arabic" : "font-sans"
-      } selection:bg-cyan-500 selection:text-black relative overflow-hidden`}
+      } selection:bg-brand-500 selection:text-white relative overflow-hidden`}
     >
-      {/* Ambient background glow effects */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-cyan-600/20 via-brand-600/15 to-transparent rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute top-[600px] -right-40 w-[600px] h-[600px] bg-growth-600/10 rounded-full blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-20 -left-40 w-[600px] h-[600px] bg-brand-600/10 rounded-full blur-[180px] pointer-events-none" />
-
       {/* Top Navigation Bar */}
-      <header className="sticky top-0 z-40 bg-[#060913]/80 backdrop-blur-xl border-b border-white/5">
+      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-xl border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           {/* Logo & Back Link */}
           <div className="flex items-center gap-4">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-white/10 text-xs sm:text-sm font-semibold text-slate-300 hover:text-white transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs sm:text-sm font-semibold text-slate-700 hover:text-slate-900 transition-all shadow-sm"
             >
               {isAr ? (
                 <>
-                  <ArrowRight className="w-4 h-4 text-cyan-400" />
+                  <ArrowRight className="w-4 h-4 text-brand-600" />
                   <span>الرجوع للرئيسية</span>
                 </>
               ) : (
                 <>
-                  <ArrowLeft className="w-4 h-4 text-cyan-400" />
+                  <ArrowLeft className="w-4 h-4 text-brand-600" />
                   <span>Back to Home</span>
                 </>
               )}
             </Link>
 
             <Link href="/" className="hidden sm:flex flex-col text-start">
-              <span className="text-base font-black text-white font-heading tracking-tight">
+              <span className="text-base font-black text-slate-900 font-heading tracking-tight">
                 Osama Elgendy
               </span>
-              <span className="text-[11px] text-cyan-400 font-medium">
+              <span className="text-[11px] text-brand-700 font-semibold">
                 {isAr ? "قائد فريق السيو وسيو المتاجر" : "SEO Team Leader & E-Com Specialist"}
               </span>
             </Link>
@@ -185,17 +180,17 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
               href={directWhatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-growth-400 bg-growth-950/40 hover:bg-growth-900/60 border border-growth-500/30 transition-all"
+              className="hidden md:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold text-brand-700 bg-brand-50 hover:bg-brand-100 border border-brand-200 transition-all"
             >
-              <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
+              <WhatsAppIcon className="w-3.5 h-3.5 text-[#22a344]" />
               <bdi dir="ltr" className="font-sans" style={{ direction: "ltr", unicodeBidi: "isolate" }}>+20 100 564 7312</bdi>
             </a>
 
             <button
               onClick={handleToggleLang}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-300 bg-slate-800/80 hover:bg-slate-700 border border-white/10 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors"
             >
-              <Globe className="w-3.5 h-3.5 text-cyan-400" />
+              <Globe className="w-3.5 h-3.5 text-brand-600" />
               <span>{isAr ? "English" : "العربية"}</span>
             </button>
           </div>
@@ -206,8 +201,8 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 relative z-10">
         {/* Header Hero Section */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-semibold text-cyan-300">
-            <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-xs font-semibold text-brand-700">
+            <Sparkles className="w-4 h-4 text-brand-600 animate-pulse" />
             <span>
               {isAr
                 ? "فحص سيو تقني مجاني 100% • بدون أي التزام • سرية تامة"
@@ -215,25 +210,25 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-heading tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 font-heading tracking-tight leading-tight">
             {isAr ? (
               <>
                 احجز فحص واستشارة السيو <br />
-                <span className="bg-gradient-to-r from-cyan-400 via-brand-400 to-growth-400 bg-clip-text text-transparent">
+                <span className="text-brand-600">
                   لموقعك أو متجرك الإلكتروني
                 </span>
               </>
             ) : (
               <>
                 Book Your Free SEO Audit & <br />
-                <span className="bg-gradient-to-r from-cyan-400 via-brand-400 to-growth-400 bg-clip-text text-transparent">
+                <span className="text-brand-600">
                   E-Commerce Growth Consultation
                 </span>
               </>
             )}
           </h1>
 
-          <p className="text-sm sm:text-base text-slate-300/85 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             {isAr
               ? "تحليل شامل ودقيق لأخطاء الزحف التقنية، مؤشرات سرعة Core Web Vitals للجوال، فجوات الكلمات المفتاحية للمنافسين، وهندسة تصدر محركات الذكاء الاصطناعي (GEO / AEO) لزيادة مبيعاتك وأرباحك."
               : "In-depth diagnostic of your technical crawl health, Core Web Vitals, competitor keyword gaps, and AI Search Engine Optimization (GEO/AEO) tailored to multiply your organic sales."}
@@ -244,21 +239,18 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main Booking Form (7 Cols on desktop) */}
           <div className="lg:col-span-7">
-            <div className="rounded-3xl p-6 sm:p-10 bg-gradient-to-b from-slate-900/90 via-[#0a1020] to-slate-950/90 border border-cyan-500/25 shadow-2xl relative overflow-hidden backdrop-blur-xl">
-              {/* Subtle top glow */}
-              <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-
+            <div className="rounded-3xl p-6 sm:p-10 bg-white border border-slate-200 shadow-xl relative overflow-hidden">
               {submitted ? (
                 <div className="py-12 text-center space-y-6 animate-in zoom-in-95 duration-300">
-                  <div className="w-20 h-20 rounded-full bg-growth-500/20 border-2 border-growth-500/50 flex items-center justify-center mx-auto text-growth-400 shadow-glow-emerald">
+                  <div className="w-20 h-20 rounded-full bg-brand-50 border-2 border-brand-300 flex items-center justify-center mx-auto text-brand-600 shadow-sm">
                     <CheckCircle2 className="w-12 h-12" />
                   </div>
 
                   <div className="space-y-2">
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
                       {isAr ? "تم استلام طلب الفحص بنجاح!" : "Audit Request Received Successfully!"}
                     </h2>
-                    <p className="text-sm sm:text-base text-slate-300 max-w-lg mx-auto leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-600 max-w-lg mx-auto leading-relaxed">
                       {isAr
                         ? `شكراً لك يا ${name}! سأقوم بمراجعة مؤشرات موقعك وإعداد تقرير الفحص الأولي والتواصل معك عبر الواتساب في غضون 24 ساعة.`
                         : `Thank you, ${name}! Osama Elgendy will personally analyze your domain metrics and reach out via WhatsApp within 24 hours.`}
@@ -266,18 +258,18 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                   </div>
 
                   {/* Summary Box */}
-                  <div className="rounded-2xl bg-white/5 border border-white/10 p-5 text-start space-y-2 max-w-md mx-auto text-xs sm:text-sm">
+                  <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-start space-y-2 max-w-md mx-auto text-xs sm:text-sm">
                     <div className="flex justify-between">
-                      <span className="text-slate-400">{isAr ? "الموقع:" : "Website:"}</span>
-                      <span className="font-semibold text-cyan-300 dir-ltr">{websiteUrl}</span>
+                      <span className="text-slate-500">{isAr ? "الموقع:" : "Website:"}</span>
+                      <span className="font-semibold text-brand-700 dir-ltr">{websiteUrl}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-slate-400">{isAr ? "الهدف:" : "Goal:"}</span>
-                      <span className="font-semibold text-slate-200">{primaryGoal}</span>
+                      <span className="text-slate-500">{isAr ? "الهدف:" : "Goal:"}</span>
+                      <span className="font-semibold text-slate-800">{primaryGoal}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-slate-400">{isAr ? "الواتساب:" : "WhatsApp:"}</span>
-                      <bdi dir="ltr" className="font-semibold text-growth-300 font-sans" style={{ direction: "ltr", unicodeBidi: "isolate" }}>{whatsapp}</bdi>
+                      <span className="text-slate-500">{isAr ? "الواتساب:" : "WhatsApp:"}</span>
+                      <bdi dir="ltr" className="font-semibold text-brand-700 font-sans" style={{ direction: "ltr", unicodeBidi: "isolate" }}>{whatsapp}</bdi>
                     </div>
                   </div>
 
@@ -287,7 +279,7 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                       href={leadFollowupWhatsappUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-growth-600 hover:bg-growth-500 shadow-glow-emerald transition-all hover:scale-[1.02] active:scale-[0.98]"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-[#22a344] hover:bg-[#1e913d] shadow-md transition-all hover:scale-[1.02] active:scale-[0.98]"
                     >
                       <WhatsAppIcon className="w-4 h-4" />
                       <span>{isAr ? "متابعة الطلب فوراً عبر واتساب" : "Chat Directly on WhatsApp"}</span>
@@ -295,7 +287,7 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
 
                     <Link
                       href="/"
-                      className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-300 bg-slate-800 hover:bg-slate-700 transition-colors"
+                      className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors"
                     >
                       {isAr ? "الرجوع للصفحة الرئيسية" : "Back to Home"}
                     </Link>
@@ -304,10 +296,10 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
               ) : (
                 <div>
                   <div className="mb-8">
-                    <h2 className="text-2xl font-black text-white font-heading">
+                    <h2 className="text-2xl font-black text-slate-900 font-heading">
                       {isAr ? "بيانات فحص موقعك" : "Your Domain & Project Details"}
                     </h2>
-                    <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                    <p className="text-xs sm:text-sm text-slate-600 mt-1">
                       {isAr
                         ? "أدخل بيانات موقعك وسأقوم بإجراء فحص يدوي دقيق وإرسال التقرير إليك."
                         : "Enter your domain metrics for an expert manual inspection and actionable roadmap."}
@@ -317,12 +309,12 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                   <form onSubmit={handleSubmit} className="space-y-5">
                     {/* Website URL */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 mb-2">
+                      <label className="block text-xs font-bold text-slate-700 mb-2">
                         {isAr ? "رابط الموقع أو المتجر الإلكتروني" : "Website or Store URL"}{" "}
-                        <span className="text-rose-400">*</span>
+                        <span className="text-rose-500">*</span>
                       </label>
                       <div className="relative">
-                        <Globe className={`w-4 h-4 text-slate-500 absolute ${isAr ? "right-3.5" : "left-3.5"} top-3.5`} />
+                        <Globe className={`w-4 h-4 text-slate-400 absolute ${isAr ? "right-3.5" : "left-3.5"} top-3.5`} />
                         <input
                           type="url"
                           required
@@ -331,7 +323,7 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                           placeholder="https://yourstore.com"
                           className={`w-full ${
                             isAr ? "pr-10 pl-4" : "pl-10 pr-4"
-                          } py-3 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all dir-ltr`}
+                          } py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-brand-500 focus:bg-white focus:ring-1 focus:ring-brand-500 transition-all dir-ltr`}
                         />
                       </div>
                     </div>
@@ -339,12 +331,12 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                     {/* Name & Email Row */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold text-slate-300 mb-2">
+                        <label className="block text-xs font-bold text-slate-700 mb-2">
                           {isAr ? "الاسم الكريم" : "Your Full Name"}{" "}
-                          <span className="text-rose-400">*</span>
+                          <span className="text-rose-500">*</span>
                         </label>
                         <div className="relative">
-                          <User className={`w-4 h-4 text-slate-500 absolute ${isAr ? "right-3.5" : "left-3.5"} top-3.5`} />
+                          <User className={`w-4 h-4 text-slate-400 absolute ${isAr ? "right-3.5" : "left-3.5"} top-3.5`} />
                           <input
                             type="text"
                             required
@@ -353,18 +345,18 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                             placeholder={isAr ? "مثال: سلطان الحربي" : "e.g. Sultan Al-Harbi"}
                             className={`w-full ${
                               isAr ? "pr-10 pl-4" : "pl-10 pr-4"
-                            } py-3 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all`}
+                            } py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-brand-500 focus:bg-white focus:ring-1 focus:ring-brand-500 transition-all`}
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-slate-300 mb-2">
+                        <label className="block text-xs font-bold text-slate-700 mb-2">
                           {isAr ? "البريد الإلكتروني للعمل" : "Business Email"}{" "}
-                          <span className="text-rose-400">*</span>
+                          <span className="text-rose-500">*</span>
                         </label>
                         <div className="relative">
-                          <Mail className={`w-4 h-4 text-slate-500 absolute ${isAr ? "right-3.5" : "left-3.5"} top-3.5`} />
+                          <Mail className={`w-4 h-4 text-slate-400 absolute ${isAr ? "right-3.5" : "left-3.5"} top-3.5`} />
                           <input
                             type="email"
                             required
@@ -373,7 +365,7 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                             placeholder="name@company.com"
                             className={`w-full ${
                               isAr ? "pr-10 pl-4" : "pl-10 pr-4"
-                            } py-3 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all dir-ltr`}
+                            } py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-brand-500 focus:bg-white focus:ring-1 focus:ring-brand-500 transition-all dir-ltr`}
                           />
                         </div>
                       </div>
@@ -381,12 +373,12 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
 
                     {/* WhatsApp Phone */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 mb-2">
+                      <label className="block text-xs font-bold text-slate-700 mb-2">
                         {isAr ? "رقم الواتساب (مع مفتاح الدولة)" : "WhatsApp / Phone (with country code)"}{" "}
-                        <span className="text-rose-400">*</span>
+                        <span className="text-rose-500">*</span>
                       </label>
                       <div className="relative">
-                        <Phone className={`w-4 h-4 text-slate-500 absolute ${isAr ? "right-3.5" : "left-3.5"} top-3.5`} />
+                        <Phone className={`w-4 h-4 text-slate-400 absolute ${isAr ? "right-3.5" : "left-3.5"} top-3.5`} />
                         <input
                           type="tel"
                           required
@@ -395,14 +387,14 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                           placeholder="+966 50 123 4567 / +20 100 564 7312"
                           className={`w-full ${
                             isAr ? "pr-10 pl-4" : "pl-10 pr-4"
-                          } py-3 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all dir-ltr`}
+                          } py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-brand-500 focus:bg-white focus:ring-1 focus:ring-brand-500 transition-all dir-ltr`}
                         />
                       </div>
                     </div>
 
                     {/* Platform Selector */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 mb-2">
+                      <label className="block text-xs font-bold text-slate-700 mb-2">
                         {isAr ? "منصة المتجر أو الموقع" : "Store or CMS Platform"}
                       </label>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -416,8 +408,8 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                               onClick={() => setPlatform(label)}
                               className={`py-2 px-3 rounded-xl text-xs font-semibold text-center border transition-all ${
                                 selected
-                                  ? "bg-cyan-500/20 border-cyan-400 text-cyan-300 shadow-sm"
-                                  : "bg-slate-900/60 border-white/10 text-slate-400 hover:text-white hover:bg-slate-800"
+                                  ? "bg-brand-50 border-brand-500 text-brand-700 shadow-sm"
+                                  : "bg-slate-50 border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                               }`}
                             >
                               {label}
@@ -430,16 +422,16 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                     {/* Traffic & Primary Goal */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold text-slate-300 mb-2">
+                        <label className="block text-xs font-bold text-slate-700 mb-2">
                           {isAr ? "متوسط الزيارات الشهرية" : "Monthly Organic Traffic"}
                         </label>
                         <select
                           value={monthlyTraffic}
                           onChange={(e) => setMonthlyTraffic(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:outline-none focus:border-cyan-400 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all"
                         >
                           {trafficRanges.map((range) => (
-                            <option key={range} value={range} className="bg-slate-900 text-white">
+                            <option key={range} value={range} className="bg-white text-slate-900">
                               {range}
                             </option>
                           ))}
@@ -447,16 +439,16 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-slate-300 mb-2">
+                        <label className="block text-xs font-bold text-slate-700 mb-2">
                           {isAr ? "الهدف الأساسي من الفحص" : "Primary SEO Goal"}
                         </label>
                         <select
                           value={primaryGoal}
                           onChange={(e) => setPrimaryGoal(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:outline-none focus:border-cyan-400 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all"
                         >
                           {t.modal.goals.map((goal) => (
-                            <option key={goal} value={goal} className="bg-slate-900 text-white">
+                            <option key={goal} value={goal} className="bg-white text-slate-900">
                               {goal}
                             </option>
                           ))}
@@ -466,7 +458,7 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
 
                     {/* Message / Challenges */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 mb-2">
+                      <label className="block text-xs font-bold text-slate-700 mb-2">
                         {isAr
                           ? "ملاحظات إضافية أو تحديات تواجهها حالياً (اختياري)"
                           : "Project Scope & Specific Challenges (Optional)"}
@@ -480,7 +472,7 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                             ? "أخبرني عن أهدافك، أو المشاكل التقنية في Search Console، أو أي ملاحظات تريد التركيز عليها..."
                             : "Tell me about your current revenue goals, indexing issues, or specific targets..."
                         }
-                        className="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-brand-500 focus:bg-white transition-all"
                       />
                     </div>
 
@@ -489,7 +481,7 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                       <button
                         type="submit"
                         disabled={submitting}
-                        className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl font-bold text-sm sm:text-base text-white bg-gradient-to-r from-brand-600 via-cyan-600 to-growth-600 hover:opacity-95 shadow-glow hover:shadow-glow-emerald transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl font-bold text-sm sm:text-base text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-600/20 transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {submitting ? (
                           <>
@@ -498,7 +490,7 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                           </>
                         ) : (
                           <>
-                            <Sparkles className="w-5 h-5 text-cyan-200 animate-pulse" />
+                            <Sparkles className="w-5 h-5 text-white animate-pulse" />
                             <span>{isAr ? "تأكيد طلب الفحص المجاني والاستشارة" : "Confirm Free Audit & Growth Session"}</span>
                             {isAr ? (
                               <ArrowLeft className="w-4 h-4 text-white" />
@@ -510,8 +502,8 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                       </button>
                     </div>
 
-                    <div className="flex items-center justify-center gap-2 pt-2 text-xs text-slate-400 text-center">
-                      <ShieldCheck className="w-4 h-4 text-growth-400 shrink-0" />
+                    <div className="flex items-center justify-center gap-2 pt-2 text-xs text-slate-500 text-center">
+                      <ShieldCheck className="w-4 h-4 text-brand-600 shrink-0" />
                       <span>
                         {isAr
                           ? "بياناتك في سرية تامة 100% • الرد يتم مباشرة من أسامة الجندي خلال أقل من 24 ساعة"
@@ -527,29 +519,29 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
           {/* Sidebar / Value Props (5 Cols on desktop) */}
           <div className="lg:col-span-5 space-y-6">
             {/* What's Included Card */}
-            <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-[#0b1226] to-[#080d1c] border border-white/10 shadow-xl relative overflow-hidden">
+            <div className="rounded-3xl p-6 sm:p-8 bg-white border border-slate-200 shadow-xl relative overflow-hidden">
               <div className="flex items-center gap-2.5 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                <div className="w-10 h-10 rounded-xl bg-brand-50 border border-brand-200 flex items-center justify-center text-brand-600">
                   <Zap className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">
+                  <h3 className="text-base font-bold text-slate-900">
                     {isAr ? "ما الذي يشمله هذا الفحص المجاني؟" : "What This Free Audit Delivers"}
                   </h3>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-500">
                     {isAr ? "تقرير احترافي يكشف الفرص الضائعة" : "Actionable Intelligence for Rapid Growth"}
                   </p>
                 </div>
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-white/[0.03] border border-white/5">
-                  <Search className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200">
+                  <Search className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-white">
+                    <h4 className="text-xs font-bold text-slate-900">
                       {isAr ? "فحص السيو التقني (Deep Technical Crawl)" : "Deep Technical Crawl"}
                     </h4>
-                    <p className="text-[11px] text-slate-400 mt-0.5 leading-relaxed">
+                    <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
                       {isAr
                         ? "كشف أخطاء 404، وسلاسل التوجيهات 301، ومشاكل ملفات robots.txt و sitemap وفهرسة الصفحات."
                         : "Detect crawl errors, redirect loops, sitemap discrepancies, and indexation blockers."}
@@ -557,13 +549,13 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-white/[0.03] border border-white/5">
-                  <TrendingUp className="w-4 h-4 text-growth-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200">
+                  <TrendingUp className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-white">
+                    <h4 className="text-xs font-bold text-slate-900">
                       {isAr ? "تحليل فجوات الكلمات المفتاحية للمنافسين" : "Competitor Keyword Gaps"}
                     </h4>
-                    <p className="text-[11px] text-slate-400 mt-0.5 leading-relaxed">
+                    <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
                       {isAr
                         ? "تحديد الكلمات التجارية الأكثر ربحية في السعودية والخليج التي يتصدر فيها منافسوك وتفقدها أنت."
                         : "Uncover high-intent transactional queries your regional competitors dominate."}
@@ -571,13 +563,13 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-white/[0.03] border border-white/5">
-                  <Bot className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200">
+                  <Bot className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-white">
+                    <h4 className="text-xs font-bold text-slate-900">
                       {isAr ? "جاهزية محركات الذكاء الاصطناعي (GEO / AEO)" : "AI Search Engine Optimization (GEO)"}
                     </h4>
-                    <p className="text-[11px] text-slate-400 mt-0.5 leading-relaxed">
+                    <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
                       {isAr
                         ? "تقييم قابلية ترشيح موقعك ومنتجاتك داخل إجابات ChatGPT، Perplexity، و Google AI Overviews."
                         : "Benchmark how effectively your brand citations appear in generative AI responses."}
@@ -585,13 +577,13 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-white/[0.03] border border-white/5">
-                  <Layers className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200">
+                  <Layers className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="text-xs font-bold text-white">
+                    <h4 className="text-xs font-bold text-slate-900">
                       {isAr ? "سرعة المتجر ومؤشرات Core Web Vitals" : "Core Web Vitals & Mobile Speed"}
                     </h4>
-                    <p className="text-[11px] text-slate-400 mt-0.5 leading-relaxed">
+                    <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
                       {isAr
                         ? "قياس دقيق لسرعة LCP و INP و CLS على الهواتف الذكية لمنع تسرب العملاء وزيادة التحويلات."
                         : "Evaluate real mobile performance to eliminate cart abandonment and lift conversions."}
@@ -602,16 +594,16 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
             </div>
 
             {/* Direct WhatsApp Fast Track Card */}
-            <div className="rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-growth-950/40 via-[#0a1820] to-[#08121a] border border-growth-500/30 shadow-xl relative overflow-hidden">
-              <div className="flex items-center gap-2 text-xs font-bold text-growth-400 mb-2">
+            <div className="rounded-3xl p-6 sm:p-7 bg-brand-50/60 border border-brand-200 shadow-md relative overflow-hidden">
+              <div className="flex items-center gap-2 text-xs font-bold text-brand-700 mb-2">
                 <Clock className="w-4 h-4" />
                 <span>{isAr ? "تفضل التواصل الفوري السريع؟" : "Prefer Immediate Direct Chat?"}</span>
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
                 {isAr ? "تواصل مباشرة مع أسامة على واتساب" : "Chat Directly with Osama"}
               </h3>
-              <p className="text-xs text-slate-300/80 mb-5 leading-relaxed">
+              <p className="text-xs text-slate-600 mb-5 leading-relaxed">
                 {isAr
                   ? "إذا كان لديك متجر قائم وتريد مناقشة أرقام المبيعات أو مشكلة عاجلة في أرشفة جوجل، يمكنك مراسلتي فوراً."
                   : "Have an urgent drop in Search Console or want to discuss store scaling immediately? Send a direct message."}
@@ -621,7 +613,7 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
                 href={directWhatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl font-bold text-sm text-white bg-growth-600 hover:bg-growth-500 shadow-glow-emerald transition-all"
+                className="w-full inline-flex items-center justify-center gap-2.5 py-3 px-5 rounded-xl font-bold text-sm text-white bg-[#22a344] hover:bg-[#1e913d] shadow-md transition-all"
               >
                 <WhatsAppIcon className="w-4 h-4" />
                 <span className="inline-flex items-center gap-1.5">
@@ -633,21 +625,21 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
 
             {/* Quick Proof Badges */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-2xl p-4 bg-white/[0.02] border border-white/5 text-center">
-                <span className="text-2xl font-black text-cyan-400 font-heading">120+</span>
-                <p className="text-[11px] text-slate-400 mt-0.5">{isAr ? "موقع تم تحسينه" : "Sites Optimized"}</p>
+              <div className="rounded-2xl p-4 bg-white border border-slate-200 text-center shadow-sm">
+                <span className="text-2xl font-black text-brand-600 font-heading">120+</span>
+                <p className="text-[11px] text-slate-600 mt-0.5">{isAr ? "موقع تم تحسينه" : "Sites Optimized"}</p>
               </div>
-              <div className="rounded-2xl p-4 bg-white/[0.02] border border-white/5 text-center">
-                <span className="text-2xl font-black text-growth-400 font-heading">50+</span>
-                <p className="text-[11px] text-slate-400 mt-0.5">{isAr ? "متجر سلة وزد وشوبيفاي" : "E-Com Stores"}</p>
+              <div className="rounded-2xl p-4 bg-white border border-slate-200 text-center shadow-sm">
+                <span className="text-2xl font-black text-brand-600 font-heading">50+</span>
+                <p className="text-[11px] text-slate-600 mt-0.5">{isAr ? "متجر سلة وزد وشوبيفاي" : "E-Com Stores"}</p>
               </div>
-              <div className="rounded-2xl p-4 bg-white/[0.02] border border-white/5 text-center">
-                <span className="text-2xl font-black text-purple-400 font-heading">6+</span>
-                <p className="text-[11px] text-slate-400 mt-0.5">{isAr ? "سنوات خبرة قيادية" : "Years Experience"}</p>
+              <div className="rounded-2xl p-4 bg-white border border-slate-200 text-center shadow-sm">
+                <span className="text-2xl font-black text-slate-700 font-heading">6+</span>
+                <p className="text-[11px] text-slate-600 mt-0.5">{isAr ? "سنوات خبرة قيادية" : "Years Experience"}</p>
               </div>
-              <div className="rounded-2xl p-4 bg-white/[0.02] border border-white/5 text-center">
-                <span className="text-2xl font-black text-amber-400 font-heading">100%</span>
-                <p className="text-[11px] text-slate-400 mt-0.5">{isAr ? "استراتيجيات وايت هات" : "White-hat SEO"}</p>
+              <div className="rounded-2xl p-4 bg-white border border-slate-200 text-center shadow-sm">
+                <span className="text-2xl font-black text-brand-600 font-heading">100%</span>
+                <p className="text-[11px] text-slate-600 mt-0.5">{isAr ? "استراتيجيات وايت هات" : "White-hat SEO"}</p>
               </div>
             </div>
           </div>
@@ -655,17 +647,17 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
       </main>
 
       {/* Footer */}
-      <footer className="mt-20 py-8 border-t border-white/5 text-center text-xs text-slate-500">
+      <footer className="mt-20 py-8 border-t border-slate-200 text-center text-xs text-slate-500 bg-white">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p>© {new Date().getFullYear()} Osama Elgendy. {t.footer.legal}</p>
-          <div className="flex items-center gap-4 text-slate-400">
-            <Link href="/" className="hover:text-cyan-400 transition-colors">
+          <div className="flex items-center gap-4 text-slate-600">
+            <Link href="/" className="hover:text-brand-600 transition-colors">
               {isAr ? "الصفحة الرئيسية" : "Home"}
             </Link>
             <span>•</span>
             <a
               href="mailto:osamasalehelgendy@gmail.com"
-              className="hover:text-cyan-400 transition-colors"
+              className="hover:text-brand-600 transition-colors"
             >
               osamasalehelgendy@gmail.com
             </a>
@@ -674,9 +666,9 @@ export function BookingContent({ forcedLang }: { forcedLang?: Language }) {
               href={directWhatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 hover:text-growth-400 transition-colors"
+              className="inline-flex items-center gap-1.5 hover:text-brand-600 transition-colors"
             >
-              <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
+              <WhatsAppIcon className="w-3.5 h-3.5 text-[#22a344]" />
               <bdi dir="ltr" className="font-sans" style={{ direction: "ltr", unicodeBidi: "isolate" }}>+20 100 564 7312</bdi>
             </a>
           </div>
@@ -690,8 +682,8 @@ export default function BookPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#060913] flex items-center justify-center text-cyan-400">
-          <div className="w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+        <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center text-brand-600">
+          <div className="w-8 h-8 border-2 border-brand-600 border-t-transparent rounded-full animate-spin" />
         </div>
       }
     >

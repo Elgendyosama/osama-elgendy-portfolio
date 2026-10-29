@@ -50,7 +50,7 @@ export const ArticleShareBar: React.FC<ArticleShareBarProps> = ({ title, url, la
       {/* Top Reading Progress Bar */}
       <div className="fixed top-0 left-0 right-0 h-1 bg-transparent z-[60] pointer-events-none">
         <div
-          className="h-full bg-gradient-to-r from-brand-500 via-cyan-400 to-growth-400 transition-all duration-150"
+          className="h-full bg-brand-600 transition-all duration-150"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -58,10 +58,10 @@ export const ArticleShareBar: React.FC<ArticleShareBarProps> = ({ title, url, la
       {/* Floating / Sticky Share Toolbar */}
       <aside
         aria-label={isAr ? "مشاركة المقال" : "Share article"}
-        className="flex items-center gap-2 p-2 rounded-2xl bg-[#090e1c]/90 border border-white/10 backdrop-blur-md shadow-2xl"
+        className="flex items-center gap-2 p-2 rounded-2xl bg-white/95 border border-slate-200 backdrop-blur-md shadow-md"
       >
-        <span className="text-[11px] font-bold text-slate-400 px-2 flex items-center gap-1.5">
-          <Share2 className="w-3.5 h-3.5 text-cyan-400" />
+        <span className="text-[11px] font-bold text-slate-500 px-2 flex items-center gap-1.5">
+          <Share2 className="w-3.5 h-3.5 text-brand-600" />
           <span className="hidden sm:inline">{isAr ? "مشاركة:" : "Share:"}</span>
         </span>
 
@@ -70,7 +70,7 @@ export const ArticleShareBar: React.FC<ArticleShareBarProps> = ({ title, url, la
           href={shareWhatsApp}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded-xl bg-growth-950/40 hover:bg-growth-900/70 text-[#25D366] border border-growth-500/30 transition-colors"
+          className="p-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-[#22a344] border border-emerald-200 transition-colors"
           title={isAr ? "مشاركة عبر واتساب" : "Share on WhatsApp"}
           aria-label="Share on WhatsApp"
         >
@@ -82,7 +82,7 @@ export const ArticleShareBar: React.FC<ArticleShareBarProps> = ({ title, url, la
           href={shareTwitter}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-white/10 transition-colors"
+          className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors"
           title={isAr ? "مشاركة على X" : "Share on X"}
           aria-label="Share on X"
         >
@@ -94,7 +94,7 @@ export const ArticleShareBar: React.FC<ArticleShareBarProps> = ({ title, url, la
           href={shareLinkedIn}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded-xl bg-[#0a66c2]/10 hover:bg-[#0a66c2]/20 text-[#38bdf8] border border-[#0a66c2]/30 transition-colors"
+          className="p-2 rounded-xl bg-blue-50 hover:bg-blue-100 text-[#0077b5] border border-blue-200 transition-colors"
           title={isAr ? "مشاركة على LinkedIn" : "Share on LinkedIn"}
           aria-label="Share on LinkedIn"
         >
@@ -105,17 +105,17 @@ export const ArticleShareBar: React.FC<ArticleShareBarProps> = ({ title, url, la
         <button
           type="button"
           onClick={handleCopy}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-semibold text-slate-200 border border-white/10 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700 border border-slate-200 transition-colors"
           title={isAr ? "نسخ رابط المقال" : "Copy link"}
         >
           {copied ? (
             <>
-              <Check className="w-3.5 h-3.5 text-growth-400" />
-              <span className="text-growth-400 text-[11px]">{isAr ? "تم النسخ!" : "Copied!"}</span>
+              <Check className="w-3.5 h-3.5 text-brand-600" />
+              <span className="text-brand-700 text-[11px] font-bold">{isAr ? "تم النسخ!" : "Copied!"}</span>
             </>
           ) : (
             <>
-              <Copy className="w-3.5 h-3.5 text-slate-400" />
+              <Copy className="w-3.5 h-3.5 text-slate-500" />
               <span className="text-[11px]">{isAr ? "نسخ الرابط" : "Copy"}</span>
             </>
           )}

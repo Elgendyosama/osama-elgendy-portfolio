@@ -61,7 +61,7 @@ export default function ArabicBlogArchivePage() {
   return (
     <div
       dir="rtl"
-      className="min-h-screen bg-[#060913] text-slate-100 font-arabic selection:bg-cyan-500 selection:text-black"
+      className="min-h-screen bg-[#f8fafc] text-slate-900 font-arabic selection:bg-brand-500 selection:text-white"
     >
       {/* Global Navbar */}
       <Navbar
@@ -74,56 +74,52 @@ export default function ArabicBlogArchivePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumbs Navigation */}
           <nav aria-label="مسار التصفح" className="mb-8">
-            <ol className="flex items-center gap-2 text-xs font-medium text-slate-400">
+            <ol className="flex items-center gap-2 text-xs font-medium text-slate-500">
               <li>
-                <Link href="/ar" className="hover:text-cyan-400 transition-colors">
+                <Link href="/ar" className="hover:text-brand-600 transition-colors">
                   الرئيسية
                 </Link>
               </li>
               <li>
-                <ChevronRight className="w-3.5 h-3.5 text-slate-600 rotate-180" />
+                <ChevronRight className="w-3.5 h-3.5 text-slate-400 rotate-180" />
               </li>
-              <li className="text-cyan-400 font-semibold" aria-current="page">
+              <li className="text-brand-700 font-semibold" aria-current="page">
                 دليل مقالات واستراتيجيات السيو
               </li>
             </ol>
           </nav>
 
           {/* Hero Header Section */}
-          <div className="relative rounded-3xl p-8 sm:p-12 lg:p-16 mb-14 bg-gradient-to-br from-[#0c1326] via-[#090e1c] to-[#060913] border border-cyan-500/20 shadow-2xl overflow-hidden">
-            {/* Ambient Lighting Gradients */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-brand-600/10 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
-
+          <div className="relative rounded-3xl p-8 sm:p-12 lg:p-16 mb-14 bg-white border border-slate-200 shadow-xl overflow-hidden">
             <div className="relative z-10 max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-bold tracking-wide">
-                <Sparkles className="w-3.5 h-3.5" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-bold tracking-wide">
+                <Sparkles className="w-3.5 h-3.5 text-brand-600" />
                 <span>دليل السيو التقني ومضاعفة أرباح المتاجر</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl font-black font-heading text-white tracking-tight leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-black font-heading text-slate-900 tracking-tight leading-tight">
                 أحدث استراتيجيات السيو التقني وتصدر محركات الذكاء الاصطناعي
               </h1>
 
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 مقالات متعمقة ودراسات حالة عملية من واقع إدارة السيو لأكثر من 120 موقعاً و50 متجراً في السعودية والخليج العربي. من تهيئة Next.js وسرعة Core Web Vitals إلى تصدر ملخصات Google AI Overviews.
               </p>
 
               {/* Search Bar Input */}
               <div className="pt-2">
                 <div className="relative max-w-xl">
-                  <Search className="w-4 h-4 text-cyan-400 absolute right-4 top-1/2 -translate-y-1/2" />
+                  <Search className="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="ابحث في المقالات، الاستراتيجيات، الكلمات المفتاحية..."
-                    className="w-full pr-11 pl-4 py-3 rounded-2xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 text-sm focus:border-cyan-400 focus:outline-none focus:ring-1 focus:ring-cyan-400 shadow-inner transition-colors"
+                    className="w-full pr-11 pl-4 py-3 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 placeholder-slate-400 text-sm focus:border-brand-500 focus:bg-white focus:outline-none focus:ring-1 focus:ring-brand-500 shadow-sm transition-colors"
                   />
                   {searchQuery && (
                     <button
                       onClick={() => setSearchQuery("")}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white px-2 py-1 rounded-md bg-white/5"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-700 px-2 py-1 rounded-md bg-slate-100"
                     >
                       مسح
                     </button>
@@ -141,8 +137,8 @@ export default function ArabicBlogArchivePage() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
                   selectedCategory === cat
-                    ? "bg-gradient-to-r from-brand-600 to-cyan-600 text-white shadow-glow"
-                    : "bg-slate-900/60 hover:bg-slate-800 text-slate-300 border border-white/5"
+                    ? "bg-brand-600 text-white shadow-md shadow-brand-600/20"
+                    : "bg-white hover:bg-slate-50 text-slate-700 border border-slate-200"
                 }`}
               >
                 {cat}
@@ -152,12 +148,12 @@ export default function ArabicBlogArchivePage() {
 
           {/* Empty Search Results */}
           {filteredArticles.length === 0 && (
-            <div className="text-center py-20 rounded-3xl bg-[#090e1c] border border-white/10 p-8 space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mx-auto">
+            <div className="text-center py-20 rounded-3xl bg-white border border-slate-200 p-8 space-y-4 shadow-sm">
+              <div className="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center mx-auto">
                 <BookOpen className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-white">لم يتم العثور على مقالات مطابقة</h3>
-              <p className="text-xs text-slate-400 max-w-sm mx-auto">
+              <h3 className="text-lg font-bold text-slate-900">لم يتم العثور على مقالات مطابقة</h3>
+              <p className="text-xs text-slate-600 max-w-sm mx-auto">
                 لا توجد مقالات تطابق بحثك حالياً. جرّب كلمات بحثية مختلفة أو اختر تصنيفاً آخر.
               </p>
               <button
@@ -165,7 +161,7 @@ export default function ArabicBlogArchivePage() {
                   setSearchQuery("");
                   setSelectedCategory("الكل");
                 }}
-                className="px-4 py-2 rounded-xl text-xs font-bold text-cyan-300 bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500/20 transition-colors"
+                className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 transition-colors shadow-sm"
               >
                 عرض كل المقالات
               </button>
@@ -175,17 +171,17 @@ export default function ArabicBlogArchivePage() {
           {/* Featured Article Card */}
           {featuredArticle && (
             <div className="mb-14">
-              <div className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold mb-4 flex items-center gap-1.5">
-                <TrendingUp className="w-4 h-4" />
+              <div className="text-xs font-mono uppercase tracking-wider text-brand-700 font-bold mb-4 flex items-center gap-1.5">
+                <TrendingUp className="w-4 h-4 text-brand-600" />
                 <span>المقال المميز الأكثر قراءة</span>
               </div>
 
-              <article className="group rounded-3xl bg-gradient-to-br from-[#0c1326] to-[#080d1a] border border-cyan-500/30 shadow-2xl overflow-hidden hover:border-cyan-400/60 transition-all duration-300">
+              <article className="group rounded-3xl bg-white border border-slate-200 shadow-md overflow-hidden hover:border-brand-500/50 hover:shadow-xl transition-all duration-300">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-8 lg:p-10">
                   {/* Article Image Container */}
                   <Link
                     href={`/ar/blog/${featuredArticle.slug}`}
-                    className="lg:col-span-6 relative aspect-[16/10] w-full rounded-2xl overflow-hidden border border-white/10 group-hover:border-cyan-400/40 transition-colors block"
+                    className="lg:col-span-6 relative aspect-[16/10] w-full rounded-2xl overflow-hidden border border-slate-200 group-hover:border-brand-300 transition-colors block bg-slate-100"
                   >
                     <Image
                       src={featuredArticle.featuredImage}
@@ -196,7 +192,7 @@ export default function ArabicBlogArchivePage() {
                       priority
                     />
                     <div className="absolute top-3 right-3">
-                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#060913]/90 text-cyan-300 border border-cyan-400/30 backdrop-blur-md">
+                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/95 text-brand-700 border border-brand-200 backdrop-blur-md shadow-sm">
                         {featuredArticle.category}
                       </span>
                     </div>
@@ -204,9 +200,9 @@ export default function ArabicBlogArchivePage() {
 
                   {/* Article Content Info */}
                   <div className="lg:col-span-6 space-y-4">
-                    <div className="flex items-center gap-3 text-xs text-slate-400">
+                    <div className="flex items-center gap-3 text-xs text-slate-500">
                       <span className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                        <Calendar className="w-3.5 h-3.5 text-slate-400" />
                         <span>
                           {new Date(featuredArticle.publishedAt).toLocaleDateString("ar-SA", {
                             year: "numeric",
@@ -217,18 +213,18 @@ export default function ArabicBlogArchivePage() {
                       </span>
                       <span>•</span>
                       <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-slate-500" />
+                        <Clock className="w-3.5 h-3.5 text-slate-400" />
                         <span>{featuredArticle.readTime || "7 دقائق قراءة"}</span>
                       </span>
                     </div>
 
-                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-heading font-black text-white group-hover:text-cyan-300 transition-colors leading-snug">
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-heading font-black text-slate-900 group-hover:text-brand-600 transition-colors leading-snug">
                       <Link href={`/ar/blog/${featuredArticle.slug}`}>
                         {featuredArticle.title}
                       </Link>
                     </h2>
 
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed line-clamp-3">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
                       {featuredArticle.excerpt}
                     </p>
 
@@ -238,7 +234,7 @@ export default function ArabicBlogArchivePage() {
                         {featuredArticle.tags.slice(0, 4).map((tag) => (
                           <span
                             key={tag}
-                            className="px-2.5 py-0.5 rounded-md bg-slate-900 border border-white/5 text-[11px] text-slate-400"
+                            className="px-2.5 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-[11px] text-slate-600"
                           >
                             #{tag}
                           </span>
@@ -249,7 +245,7 @@ export default function ArabicBlogArchivePage() {
                     <div className="pt-3">
                       <Link
                         href={`/ar/blog/${featuredArticle.slug}`}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-brand-600 via-cyan-600 to-growth-600 shadow-glow hover:opacity-95 transition-all"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-600/20 transition-all"
                       >
                         <span>قراءة المقال بالكامل</span>
                         <ArrowRight className="w-4 h-4 rotate-180" />
@@ -264,7 +260,7 @@ export default function ArabicBlogArchivePage() {
           {/* Regular Articles Grid */}
           {regularArticles.length > 0 && (
             <div className="space-y-6">
-              <h2 className="text-xl font-heading font-black text-white border-b border-white/10 pb-3">
+              <h2 className="text-xl font-heading font-black text-slate-900 border-b border-slate-200 pb-3">
                 جميع المقالات والدراسات ({filteredArticles.length})
               </h2>
 
@@ -272,12 +268,12 @@ export default function ArabicBlogArchivePage() {
                 {regularArticles.map((art) => (
                   <article
                     key={art.id}
-                    className="group rounded-3xl bg-[#090e1c] border border-white/10 hover:border-cyan-500/40 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-2xl"
+                    className="group rounded-3xl bg-white border border-slate-200 hover:border-brand-500/40 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl"
                   >
                     {/* Featured Image Thumbnail */}
                     <Link
                       href={`/ar/blog/${art.slug}`}
-                      className="relative aspect-[16/10] w-full block overflow-hidden bg-[#060913]"
+                      className="relative aspect-[16/10] w-full block overflow-hidden bg-slate-100"
                     >
                       <Image
                         src={art.featuredImage}
@@ -287,7 +283,7 @@ export default function ArabicBlogArchivePage() {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute top-3 right-3">
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#060913]/90 text-cyan-300 border border-cyan-400/30">
+                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/95 text-brand-700 border border-brand-200 shadow-sm">
                           {art.category}
                         </span>
                       </div>
@@ -310,18 +306,18 @@ export default function ArabicBlogArchivePage() {
                           <span>{art.readTime || "6 دقائق"}</span>
                         </div>
 
-                        <h3 className="font-heading font-bold text-base sm:text-lg text-white group-hover:text-cyan-300 transition-colors line-clamp-2 leading-snug">
+                        <h3 className="font-heading font-bold text-base sm:text-lg text-slate-900 group-hover:text-brand-600 transition-colors line-clamp-2 leading-snug">
                           <Link href={`/ar/blog/${art.slug}`}>{art.title}</Link>
                         </h3>
 
-                        <p className="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+                        <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
                           {art.excerpt}
                         </p>
                       </div>
 
-                      <div className="pt-4 border-t border-white/5 flex items-center justify-between">
-                        <div className="flex items-center gap-1.5 text-xs text-slate-400">
-                          <Tag className="w-3 h-3 text-cyan-400" />
+                      <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                          <Tag className="w-3 h-3 text-brand-600" />
                           <span className="truncate max-w-[140px]">
                             {art.tags?.[0] || art.category}
                           </span>
@@ -329,7 +325,7 @@ export default function ArabicBlogArchivePage() {
 
                         <Link
                           href={`/ar/blog/${art.slug}`}
-                          className="inline-flex items-center gap-1 text-xs font-bold text-cyan-400 group-hover:text-cyan-300 transition-colors"
+                          className="inline-flex items-center gap-1 text-xs font-bold text-brand-600 group-hover:text-brand-700 transition-colors"
                         >
                           <span>قراءة</span>
                           <ArrowRight className="w-3.5 h-3.5 rotate-180" />

@@ -26,19 +26,19 @@ export const ArticleFAQAccordion: React.FC<ArticleFAQAccordionProps> = ({
   };
 
   return (
-    <section className="my-12 pt-8 border-t border-white/10" aria-labelledby="faq-section-heading">
+    <section className="my-12 pt-8 border-t border-slate-200" aria-labelledby="faq-section-heading">
       <div className="flex items-center gap-2.5 mb-2">
-        <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+        <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-brand-50 text-brand-600 border border-brand-200">
           <HelpCircle className="w-4 h-4" />
         </div>
-        <span className="text-xs uppercase font-mono font-bold tracking-wider text-cyan-400">
+        <span className="text-xs uppercase font-mono font-bold tracking-wider text-brand-700">
           {isAr ? "الأسئلة الشائعة والأجوبة" : "Frequently Asked Questions"}
         </span>
       </div>
 
       <h2
         id="faq-section-heading"
-        className="text-2xl sm:text-3xl font-heading font-extrabold text-white mb-6"
+        className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-900 mb-6"
       >
         {isAr ? "إيضاحات تقنية وإجابات متخصصة" : "Technical Clarifications & SEO Insights"}
       </h2>
@@ -51,8 +51,8 @@ export const ArticleFAQAccordion: React.FC<ArticleFAQAccordionProps> = ({
               key={item.id || index}
               className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                 isOpen
-                  ? "bg-[#090e1c] border-cyan-500/30 shadow-lg shadow-cyan-500/5"
-                  : "bg-[#070b16]/70 border-white/10 hover:border-white/20"
+                  ? "bg-white border-brand-400 shadow-md ring-1 ring-brand-300/40"
+                  : "bg-white border-slate-200 hover:border-slate-300 shadow-sm"
               }`}
             >
               <button
@@ -61,12 +61,12 @@ export const ArticleFAQAccordion: React.FC<ArticleFAQAccordionProps> = ({
                 aria-expanded={isOpen}
                 className="w-full p-5 text-start flex items-center justify-between gap-4 transition-colors"
               >
-                <span className="font-heading font-bold text-sm sm:text-base text-white">
+                <span className="font-heading font-bold text-sm sm:text-base text-slate-900">
                   {item.question}
                 </span>
                 <div
-                  className={`w-6 h-6 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                    isOpen ? "rotate-180 bg-cyan-500/20 text-cyan-400 border-cyan-500/40" : "text-slate-400"
+                  className={`w-6 h-6 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                    isOpen ? "rotate-180 bg-brand-50 text-brand-600 border border-brand-200" : "bg-slate-100 border border-slate-200 text-slate-500"
                   }`}
                 >
                   <ChevronDown className="w-4 h-4" />
@@ -74,7 +74,7 @@ export const ArticleFAQAccordion: React.FC<ArticleFAQAccordionProps> = ({
               </button>
 
               {isOpen && (
-                <div className="px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/5 pt-3 animate-in fade-in">
+                <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3 animate-in fade-in">
                   <p>{item.answer}</p>
                 </div>
               )}

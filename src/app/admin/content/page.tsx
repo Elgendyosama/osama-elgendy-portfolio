@@ -107,30 +107,30 @@ export default function AdminContentPage() {
       {/* Top Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-black text-white font-heading">
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading">
             Content & Data CMS
           </h1>
-          <p className="text-xs sm:text-sm text-slate-400 mt-1">
+          <p className="text-xs sm:text-sm text-slate-600 mt-1">
             Edit live portfolio text, adjust key metrics, and manage SEO case studies.
           </p>
         </div>
 
         {savedNotice && (
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-growth-500/20 text-growth-300 border border-growth-500/40 text-xs font-bold animate-in fade-in">
-            <CheckCircle className="w-4 h-4 text-growth-400" />
+          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-50 text-brand-700 border border-brand-200 text-xs font-bold animate-in fade-in">
+            <CheckCircle className="w-4 h-4 text-brand-600" />
             <span>Changes successfully saved to live database!</span>
           </div>
         )}
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-2 border-b border-white/10 pb-2 overflow-x-auto">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2 overflow-x-auto">
         <button
           onClick={() => setActiveTab("hero")}
           className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
             activeTab === "hero"
-              ? "bg-cyan-500 text-black shadow-glow"
-              : "text-slate-400 hover:text-white"
+              ? "bg-brand-600 text-white shadow-sm"
+              : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
           }`}
         >
           Hero & Bio
@@ -139,8 +139,8 @@ export default function AdminContentPage() {
           onClick={() => setActiveTab("metrics")}
           className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
             activeTab === "metrics"
-              ? "bg-cyan-500 text-black shadow-glow"
-              : "text-slate-400 hover:text-white"
+              ? "bg-brand-600 text-white shadow-sm"
+              : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
           }`}
         >
           Metrics & Stats
@@ -149,8 +149,8 @@ export default function AdminContentPage() {
           onClick={() => setActiveTab("services")}
           className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
             activeTab === "services"
-              ? "bg-cyan-500 text-black shadow-glow"
-              : "text-slate-400 hover:text-white"
+              ? "bg-brand-600 text-white shadow-sm"
+              : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
           }`}
         >
           SEO Solutions ({services.length})
@@ -159,8 +159,8 @@ export default function AdminContentPage() {
           onClick={() => setActiveTab("cases")}
           className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
             activeTab === "cases"
-              ? "bg-cyan-500 text-black shadow-glow"
-              : "text-slate-400 hover:text-white"
+              ? "bg-brand-600 text-white shadow-sm"
+              : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
           }`}
         >
           GSC Case Studies ({caseStudies.length})
@@ -169,85 +169,85 @@ export default function AdminContentPage() {
 
       {/* TAB 1: HERO & BIO */}
       {activeTab === "hero" && (
-        <form onSubmit={handleSaveHero} className="rounded-3xl p-6 bg-[#090e1c] border border-white/10 shadow-xl space-y-5">
+        <form onSubmit={handleSaveHero} className="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm space-y-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1.5">
+              <label className="block text-xs font-bold text-slate-700 mb-1.5">
                 Full Name
               </label>
               <input
                 type="text"
                 value={siteConfig.name}
                 onChange={(e) => setSiteConfig({ ...siteConfig, name: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/10 text-white text-xs sm:text-sm focus:border-cyan-400 focus:outline-none"
+                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm focus:border-brand-500 focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1.5">
+              <label className="block text-xs font-bold text-slate-700 mb-1.5">
                 Professional Role Title
               </label>
               <input
                 type="text"
                 value={siteConfig.role}
                 onChange={(e) => setSiteConfig({ ...siteConfig, role: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/10 text-white text-xs sm:text-sm focus:border-cyan-400 focus:outline-none"
+                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm focus:border-brand-500 focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1.5">
+              <label className="block text-xs font-bold text-slate-700 mb-1.5">
                 Years of Experience
               </label>
               <input
                 type="text"
                 value={siteConfig.yearsOfExperience}
                 onChange={(e) => setSiteConfig({ ...siteConfig, yearsOfExperience: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/10 text-white text-xs sm:text-sm focus:border-cyan-400 focus:outline-none"
+                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm focus:border-brand-500 focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1.5">
+              <label className="block text-xs font-bold text-slate-700 mb-1.5">
                 Target Regional Markets
               </label>
               <input
                 type="text"
                 value={siteConfig.location}
                 onChange={(e) => setSiteConfig({ ...siteConfig, location: e.target.value })}
-                className="w-full px-3.5 py-2 rounded-xl bg-slate-900 border border-white/10 text-white text-xs sm:text-sm focus:border-cyan-400 focus:outline-none"
+                className="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm focus:border-brand-500 focus:bg-white focus:outline-none"
               />
             </div>
 
             <div className="sm:col-span-2">
-              <label className="block text-xs font-bold text-slate-300 mb-1.5">
+              <label className="block text-xs font-bold text-slate-700 mb-1.5">
                 Hero Punchy Subheadline
               </label>
               <textarea
                 rows={3}
                 value={siteConfig.heroSubheadline}
                 onChange={(e) => setSiteConfig({ ...siteConfig, heroSubheadline: e.target.value })}
-                className="w-full p-3 rounded-xl bg-slate-900 border border-white/10 text-white text-xs sm:text-sm focus:border-cyan-400 focus:outline-none"
+                className="w-full p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm focus:border-brand-500 focus:bg-white focus:outline-none"
               />
             </div>
 
             <div className="sm:col-span-2">
-              <label className="block text-xs font-bold text-slate-300 mb-1.5">
+              <label className="block text-xs font-bold text-slate-700 mb-1.5">
                 About Me Bio (Exact Text from Portfolio)
               </label>
               <textarea
                 rows={6}
                 value={siteConfig.aboutText}
                 onChange={(e) => setSiteConfig({ ...siteConfig, aboutText: e.target.value })}
-                className="w-full p-3 rounded-xl bg-slate-900 border border-white/10 text-white text-xs sm:text-sm focus:border-cyan-400 focus:outline-none leading-relaxed"
+                className="w-full p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-xs sm:text-sm focus:border-brand-500 focus:bg-white focus:outline-none leading-relaxed"
               />
             </div>
           </div>
 
-          <div className="flex justify-end pt-3 border-t border-white/10">
+          <div className="flex justify-end pt-3 border-t border-slate-200">
             <button
               type="submit"
-              className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-brand-600 to-cyan-600 shadow-glow hover:opacity-95"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-colors"
             >
               <Save className="w-4 h-4" />
               <span>Save Hero & Bio Changes</span>
@@ -263,57 +263,57 @@ export default function AdminContentPage() {
             {metrics.map((m, idx) => (
               <div
                 key={m.id}
-                className="p-5 rounded-2xl bg-[#090e1c] border border-white/10 space-y-3"
+                className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-cyan-400">Metric #{idx + 1}</span>
+                  <span className="text-xs font-bold text-brand-700">Metric #{idx + 1}</span>
                   <input
                     type="text"
                     value={m.trend}
                     onChange={(e) => handleMetricChange(idx, "trend", e.target.value)}
                     placeholder="Trend tag"
-                    className="text-xs bg-slate-900 px-2 py-1 rounded border border-white/10 text-growth-400 w-28 text-end"
+                    className="text-xs bg-brand-50 px-2 py-1 rounded border border-brand-200 text-brand-700 w-28 text-end font-semibold"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Number Value</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Number Value</label>
                     <input
                       type="number"
                       value={m.value}
                       onChange={(e) => handleMetricChange(idx, "value", parseInt(e.target.value) || 0)}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs font-bold"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs font-bold focus:border-brand-500 focus:bg-white"
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Suffix (+ / K)</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Suffix (+ / K)</label>
                     <input
                       type="text"
                       value={m.suffix}
                       onChange={(e) => handleMetricChange(idx, "suffix", e.target.value)}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-brand-500 focus:bg-white"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] text-slate-400 mb-1">Label (English)</label>
+                  <label className="block text-[11px] text-slate-600 mb-1">Label (English)</label>
                   <input
                     type="text"
                     value={m.label}
                     onChange={(e) => handleMetricChange(idx, "label", e.target.value)}
-                    className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs"
+                    className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-brand-500 focus:bg-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-[11px] text-slate-400 mb-1">Label (Arabic)</label>
+                  <label className="block text-[11px] text-slate-600 mb-1">Label (Arabic)</label>
                   <input
                     type="text"
                     value={m.labelAr}
                     onChange={(e) => handleMetricChange(idx, "labelAr", e.target.value)}
-                    className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs text-end"
+                    className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs text-end font-arabic focus:border-brand-500 focus:bg-white"
                   />
                 </div>
               </div>
@@ -323,7 +323,7 @@ export default function AdminContentPage() {
           <div className="flex justify-end pt-3">
             <button
               type="submit"
-              className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-brand-600 to-cyan-600 shadow-glow hover:opacity-95"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-colors"
             >
               <Save className="w-4 h-4" />
               <span>Save Metric Numbers</span>
@@ -336,13 +336,13 @@ export default function AdminContentPage() {
       {activeTab === "services" && (
         <form onSubmit={handleSaveServices} className="space-y-4">
           <div className="flex justify-between items-center mb-2">
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-slate-600">
               Manage all 7 core SEO service offerings and their deliverables.
             </p>
             <button
               type="button"
               onClick={handleAddService}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-cyan-600 hover:bg-cyan-500"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-colors"
             >
               <Plus className="w-3.5 h-3.5" />
               <span>Add Service</span>
@@ -353,14 +353,14 @@ export default function AdminContentPage() {
             {services.map((srv, idx) => (
               <div
                 key={srv.id}
-                className="p-5 rounded-2xl bg-[#090e1c] border border-white/10 space-y-3"
+                className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-cyan-400">Service #{idx + 1}</span>
+                  <span className="text-xs font-bold text-brand-700">Service #{idx + 1}</span>
                   <button
                     type="button"
                     onClick={() => handleDeleteService(srv.id)}
-                    className="text-xs text-rose-400 hover:text-rose-300 flex items-center gap-1"
+                    className="text-xs text-rose-600 hover:text-rose-700 flex items-center gap-1 font-semibold"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                     <span>Delete</span>
@@ -369,7 +369,7 @@ export default function AdminContentPage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Title (EN)</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Title (EN)</label>
                     <input
                       type="text"
                       value={srv.title}
@@ -378,12 +378,12 @@ export default function AdminContentPage() {
                         copy[idx].title = e.target.value;
                         setServices(copy);
                       }}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs font-bold"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs font-bold focus:border-brand-500 focus:bg-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Title (AR)</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Title (AR)</label>
                     <input
                       type="text"
                       value={srv.titleAr}
@@ -392,12 +392,12 @@ export default function AdminContentPage() {
                         copy[idx].titleAr = e.target.value;
                         setServices(copy);
                       }}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs text-end"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs text-end font-arabic focus:border-brand-500 focus:bg-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Category</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Category</label>
                     <select
                       value={srv.category}
                       onChange={(e) => {
@@ -405,7 +405,7 @@ export default function AdminContentPage() {
                         copy[idx].category = e.target.value as any;
                         setServices(copy);
                       }}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-brand-500 focus:bg-white"
                     >
                       <option value="Technical">Technical</option>
                       <option value="E-commerce">E-commerce</option>
@@ -415,7 +415,7 @@ export default function AdminContentPage() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Highlight Badge</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Highlight Badge</label>
                     <input
                       type="text"
                       value={srv.metricsHighlight}
@@ -424,12 +424,12 @@ export default function AdminContentPage() {
                         copy[idx].metricsHighlight = e.target.value;
                         setServices(copy);
                       }}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-brand-500 focus:bg-white"
                     />
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label className="block text-[11px] text-slate-400 mb-1">Summary (EN)</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Summary (EN)</label>
                     <textarea
                       rows={2}
                       value={srv.summary}
@@ -438,7 +438,7 @@ export default function AdminContentPage() {
                         copy[idx].summary = e.target.value;
                         setServices(copy);
                       }}
-                      className="w-full p-2 rounded bg-slate-900 border border-white/10 text-white text-xs"
+                      className="w-full p-2 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-brand-500 focus:bg-white"
                     />
                   </div>
                 </div>
@@ -449,7 +449,7 @@ export default function AdminContentPage() {
           <div className="flex justify-end pt-3">
             <button
               type="submit"
-              className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-brand-600 to-cyan-600 shadow-glow hover:opacity-95"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-colors"
             >
               <Save className="w-4 h-4" />
               <span>Save Services</span>
@@ -465,13 +465,13 @@ export default function AdminContentPage() {
             {caseStudies.map((cs, idx) => (
               <div
                 key={cs.id}
-                className="p-5 rounded-2xl bg-[#090e1c] border border-white/10 space-y-3"
+                className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3"
               >
-                <span className="text-xs font-bold text-cyan-400">Case Study #{idx + 1}</span>
+                <span className="text-xs font-bold text-brand-700">Case Study #{idx + 1}</span>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Client/Store</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Client/Store</label>
                     <input
                       type="text"
                       value={cs.clientName}
@@ -480,12 +480,12 @@ export default function AdminContentPage() {
                         copy[idx].clientName = e.target.value;
                         setCaseStudies(copy);
                       }}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs font-bold"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs font-bold focus:border-brand-500 focus:bg-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Platform</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Platform</label>
                     <input
                       type="text"
                       value={cs.platform}
@@ -494,12 +494,12 @@ export default function AdminContentPage() {
                         copy[idx].platform = e.target.value;
                         setCaseStudies(copy);
                       }}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-brand-500 focus:bg-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Period</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Period</label>
                     <input
                       type="text"
                       value={cs.period}
@@ -508,12 +508,12 @@ export default function AdminContentPage() {
                         copy[idx].period = e.target.value;
                         setCaseStudies(copy);
                       }}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-brand-500 focus:bg-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Clicks</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Clicks</label>
                     <input
                       type="text"
                       value={cs.clicks}
@@ -522,12 +522,12 @@ export default function AdminContentPage() {
                         copy[idx].clicks = e.target.value;
                         setCaseStudies(copy);
                       }}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs font-mono"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs font-mono focus:border-brand-500 focus:bg-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Impressions</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Impressions</label>
                     <input
                       type="text"
                       value={cs.impressions}
@@ -536,12 +536,12 @@ export default function AdminContentPage() {
                         copy[idx].impressions = e.target.value;
                         setCaseStudies(copy);
                       }}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs font-mono"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs font-mono focus:border-brand-500 focus:bg-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] text-slate-400 mb-1">Growth %</label>
+                    <label className="block text-[11px] text-slate-600 mb-1">Growth %</label>
                     <input
                       type="text"
                       value={cs.growth}
@@ -550,7 +550,7 @@ export default function AdminContentPage() {
                         copy[idx].growth = e.target.value;
                         setCaseStudies(copy);
                       }}
-                      className="w-full px-2.5 py-1.5 rounded bg-slate-900 border border-white/10 text-white text-xs text-growth-400 font-bold"
+                      className="w-full px-2.5 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-900 text-xs text-brand-700 font-bold focus:border-brand-500 focus:bg-white"
                     />
                   </div>
                 </div>
@@ -561,7 +561,7 @@ export default function AdminContentPage() {
           <div className="flex justify-end pt-3">
             <button
               type="submit"
-              className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-brand-600 to-cyan-600 shadow-glow hover:opacity-95"
+              className="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-colors"
             >
               <Save className="w-4 h-4" />
               <span>Save Case Studies</span>

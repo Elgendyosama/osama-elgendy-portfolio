@@ -37,7 +37,7 @@ export default function ArabicHomePage() {
   return (
     <div
       dir="rtl"
-      className="min-h-screen bg-[#060913] text-slate-100 font-arabic selection:bg-cyan-500 selection:text-black"
+      className="min-h-screen bg-[#f8fafc] text-slate-900 font-arabic selection:bg-brand-500 selection:text-white"
     >
       {/* Navbar with language toggle & audit modal trigger */}
       <Navbar

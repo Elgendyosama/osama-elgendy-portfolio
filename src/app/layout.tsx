@@ -78,6 +78,13 @@ export const metadata: Metadata = {
   verification: {
     google: "A9qR1-DcsToqx2welG_cJpYUDvI1TSmkNw911_aTn9Y",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/icon.png" }],
+  },
 };
 
 export default async function RootLayout({
@@ -161,7 +168,7 @@ export default async function RootLayout({
     <html
       lang={isAr ? "ar" : "en"}
       dir={isAr ? "rtl" : "ltr"}
-      className="dark scroll-smooth"
+      className="light scroll-smooth"
     >
       <head>
         <script
@@ -174,8 +181,9 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`bg-[#060913] text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-black antialiased ${isAr ? "font-arabic" : "font-sans"
-          }`}
+        className={`bg-[#f8fafc] text-slate-900 min-h-screen selection:bg-brand-500 selection:text-white antialiased ${
+          isAr ? "font-arabic" : "font-sans"
+        }`}
       >
         <LanguageHtmlHandler />
         {children}

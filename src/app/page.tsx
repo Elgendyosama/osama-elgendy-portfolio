@@ -37,7 +37,7 @@ export default function HomePage() {
   return (
     <div
       dir="ltr"
-      className="min-h-screen bg-[#060913] text-slate-100 font-sans selection:bg-cyan-500 selection:text-black"
+      className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans selection:bg-brand-500 selection:text-white"
     >
       {/* Navbar with language toggle & audit modal trigger */}
       <Navbar

@@ -12,36 +12,46 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        // Logo Emerald Green palette (#22a344)
         brand: {
-          50: "#eff6ff",
-          100: "#dbeafe",
-          200: "#bfdbfe",
-          300: "#93c5fd",
-          400: "#60a5fa",
-          500: "#3b82f6",
-          600: "#2563eb",
-          700: "#1d4ed8",
-          800: "#1e40af",
-          900: "#1e3a8a",
+          50: "#f0fdf4",
+          100: "#dcfce7",
+          200: "#bbf7d0",
+          300: "#86efac",
+          400: "#4ade80",
+          500: "#22a344", // Logo primary green
+          600: "#1b8537",
+          700: "#16672c",
+          800: "#145225",
+          900: "#124420",
+          950: "#052e16",
         },
         growth: {
-          50: "#ecfdf5",
-          100: "#d1fae5",
-          200: "#a7f3d0",
-          300: "#6ee7b7",
-          400: "#34d399",
-          500: "#10b981",
-          600: "#059669",
-          700: "#047857",
+          50: "#f0fdf4",
+          100: "#dcfce7",
+          200: "#bbf7d0",
+          300: "#86efac",
+          400: "#38c35d",
+          500: "#22a344",
+          600: "#1b8537",
+          700: "#15682b",
+          800: "#125423",
+          900: "#0f421c",
+          950: "#052e16",
         },
-        dark: {
-          950: "#030712",
-          900: "#080c18",
-          850: "#0d1322",
-          800: "#111827",
-          700: "#1f2937",
-          600: "#374151",
-        }
+        // Logo Metallic Silver / Gray palette (#b0b5b9)
+        silver: {
+          50: "#f8fafc",
+          100: "#f1f5f9",
+          200: "#e2e8f0",
+          300: "#cbd5e1",
+          400: "#b0b5b9", // Logo silver
+          500: "#94a3b8",
+          600: "#64748b",
+          700: "#475569",
+          800: "#334155",
+          900: "#1e293b",
+        },
       },
       fontFamily: {
         sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
@@ -49,9 +59,9 @@ const config: Config = {
         arabic: ["Cairo", "Segoe UI", "Tahoma", "sans-serif"],
       },
       boxShadow: {
-        glow: "0 0 25px -5px rgba(59, 130, 246, 0.4)",
-        "glow-emerald": "0 0 25px -5px rgba(16, 185, 129, 0.4)",
-        "glow-card": "0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.1)",
+        glow: "0 0 20px -3px rgba(34, 163, 68, 0.3)",
+        "glow-emerald": "0 0 20px -3px rgba(34, 163, 68, 0.3)",
+        "glow-card": "0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 0 1px 1px rgba(176, 181, 185, 0.2)",
       },
       animation: {
         "pulse-subtle": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
@@ -67,4 +77,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;

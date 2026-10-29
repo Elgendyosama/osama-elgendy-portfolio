@@ -76,15 +76,12 @@ export const AuditModal: React.FC<AuditModalProps> = ({
   const whatsappUrl = `https://wa.me/${cleanPhone}?text=${whatsappMsg}`;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/80 backdrop-blur-md animate-in fade-in">
-      <div className="relative w-full max-w-2xl rounded-3xl bg-[#090e1c] border border-cyan-500/30 shadow-2xl p-6 sm:p-8 my-8 text-start overflow-hidden">
-        {/* Glow ambient */}
-        <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-slate-900/60 backdrop-blur-sm animate-in fade-in">
+      <div className="relative w-full max-w-2xl rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 sm:p-8 my-8 text-start overflow-hidden">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-xl bg-slate-100 text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-colors"
           aria-label="Close"
         >
           <X className="w-5 h-5" />
@@ -92,15 +89,15 @@ export const AuditModal: React.FC<AuditModalProps> = ({
 
         {submitted ? (
           <div className="py-8 text-center space-y-5 animate-in zoom-in-95">
-            <div className="w-16 h-16 rounded-full bg-growth-500/20 border-2 border-growth-500/40 flex items-center justify-center mx-auto text-growth-400">
+            <div className="w-16 h-16 rounded-full bg-brand-50 border-2 border-brand-200 flex items-center justify-center mx-auto text-brand-600">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
               {t.modal.successTitle}
             </h3>
 
-            <p className="text-sm sm:text-base text-slate-300 max-w-lg mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 max-w-lg mx-auto leading-relaxed">
               {t.modal.successMessage}
             </p>
 
@@ -109,7 +106,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-growth-600 hover:bg-growth-500 shadow-glow-emerald transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-white bg-[#22a344] hover:bg-[#1e913d] shadow-md transition-all"
               >
                 <WhatsAppIcon className="w-4 h-4" />
                 <span>{t.modal.directWhatsApp}</span>
@@ -117,7 +114,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
 
               <button
                 onClick={onClose}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-300 bg-slate-800 hover:bg-slate-700 transition-colors"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors"
               >
                 {t.modal.close}
               </button>
@@ -127,14 +124,14 @@ export const AuditModal: React.FC<AuditModalProps> = ({
           <div>
             {/* Modal Header */}
             <div className="mb-6">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-semibold text-cyan-300 mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-50 border border-brand-200 text-xs font-semibold text-brand-700 mb-2">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>100% Confidential & No-Obligation</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-black text-white font-heading">
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 font-heading">
                 {t.modal.title}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-300/80 mt-1.5 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
                 {t.modal.subtitle}
               </p>
             </div>
@@ -144,65 +141,65 @@ export const AuditModal: React.FC<AuditModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Website URL */}
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
-                    {t.modal.websiteUrl} <span className="text-rose-400">*</span>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    {t.modal.websiteUrl} <span className="text-rose-500">*</span>
                   </label>
                   <div className="relative">
-                    <Globe className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
+                    <Globe className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
                     <input
                       type="url"
                       required
                       placeholder={t.modal.websitePlaceholder}
                       value={websiteUrl}
                       onChange={(e) => setWebsiteUrl(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-brand-500 focus:bg-white focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Full Name */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
-                    {t.modal.fullName} <span className="text-rose-400">*</span>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    {t.modal.fullName} <span className="text-rose-500">*</span>
                   </label>
                   <div className="relative">
-                    <User className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
+                    <User className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
                     <input
                       type="text"
                       required
                       placeholder={t.modal.fullNamePlaceholder}
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-brand-500 focus:bg-white focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Email */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
-                    {t.modal.email} <span className="text-rose-400">*</span>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    {t.modal.email} <span className="text-rose-500">*</span>
                   </label>
                   <div className="relative">
-                    <Mail className="w-4 h-4 text-slate-500 absolute left-3.5 top-3.5" />
+                    <Mail className="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" />
                     <input
                       type="email"
                       required
                       placeholder={t.modal.emailPlaceholder}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-brand-500 focus:bg-white focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* WhatsApp */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
-                    {t.modal.whatsapp} <span className="text-rose-400">*</span>
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                    {t.modal.whatsapp} <span className="text-rose-500">*</span>
                   </label>
                   <div className="relative">
-                    <WhatsAppIcon className="w-4 h-4 text-[#25D366] absolute left-3.5 top-3.5" />
+                    <WhatsAppIcon className="w-4 h-4 text-[#22a344] absolute left-3.5 top-3.5" />
                     <input
                       type="tel"
                       dir="ltr"
@@ -210,20 +207,20 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                       placeholder={t.modal.whatsappPlaceholder}
                       value={whatsapp}
                       onChange={(e) => setWhatsapp(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors dir-ltr"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-brand-500 focus:bg-white focus:outline-none transition-colors dir-ltr"
                     />
                   </div>
                 </div>
 
                 {/* Monthly Traffic */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
                     {t.modal.monthlyTraffic}
                   </label>
                   <select
                     value={monthlyTraffic}
                     onChange={(e) => setMonthlyTraffic(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-brand-500 focus:bg-white focus:outline-none transition-colors"
                   >
                     <option value="Under 5K">Under 5,000 / month</option>
                     <option value="5K - 20K">5,000 - 20,000 / month</option>
@@ -235,13 +232,13 @@ export const AuditModal: React.FC<AuditModalProps> = ({
 
                 {/* Primary Growth Goal */}
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
                     {t.modal.goal}
                   </label>
                   <select
                     value={primaryGoal}
                     onChange={(e) => setPrimaryGoal(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-brand-500 focus:bg-white focus:outline-none transition-colors"
                   >
                     {t.modal.goals.map((g, i) => (
                       <option key={i} value={g}>
@@ -253,7 +250,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
 
                 {/* Notes / Challenges */}
                 <div className="sm:col-span-2">
-                  <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
                     {t.modal.notes}
                   </label>
                   <textarea
@@ -261,7 +258,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                     placeholder={t.modal.notesPlaceholder}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full p-3 rounded-xl bg-slate-900/90 border border-white/10 text-white text-sm focus:border-cyan-400 focus:outline-none transition-colors"
+                    className="w-full p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-brand-500 focus:bg-white focus:outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -271,7 +268,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-600 via-cyan-600 to-growth-600 hover:opacity-95 shadow-glow hover:shadow-glow-emerald transition-all disabled:opacity-50"
+                  className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm text-white bg-brand-600 hover:bg-brand-700 shadow-md shadow-brand-600/20 transition-all disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   <span>{submitting ? t.modal.submitting : t.modal.submit}</span>
