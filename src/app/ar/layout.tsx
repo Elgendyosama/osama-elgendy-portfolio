@@ -18,18 +18,18 @@ export const metadata: Metadata = {
     "سيو المتاجر السعودية",
   ],
   alternates: {
-    canonical: "https://osamaelgendy.com/ar",
+    canonical: "https://osama-elgendy-portfolio.vercel.app/ar",
     languages: {
-      en: "https://osamaelgendy.com",
-      ar: "https://osamaelgendy.com/ar",
-      "x-default": "https://osamaelgendy.com",
+      en: "https://osama-elgendy-portfolio.vercel.app",
+      ar: "https://osama-elgendy-portfolio.vercel.app/ar",
+      "x-default": "https://osama-elgendy-portfolio.vercel.app",
     },
   },
   openGraph: {
     type: "website",
     locale: "ar_SA",
     alternateLocale: ["en_US"],
-    url: "https://osamaelgendy.com/ar",
+    url: "https://osama-elgendy-portfolio.vercel.app/ar",
     title: "أسامة الجندي | قائد فريق السيو وخبير سيو المتاجر الإلكترونية",
     description:
       "مضاعفة مبيعات وأرباح محركات البحث للشركات والمتاجر في السعودية والخليج العربي عبر السيو التقني المتقدم، وهندسة متاجر سلة وزد وشوبيفاي، وتصدر محركات الذكاء الاصطناعي (GEO / AEO).",
