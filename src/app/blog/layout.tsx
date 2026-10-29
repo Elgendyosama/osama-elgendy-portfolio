@@ -5,18 +5,18 @@ export const metadata: Metadata = {
   description:
     "Actionable technical SEO guides, Next.js optimization playbooks, E-Commerce revenue frameworks (Salla, Zid, Shopify), and Generative Engine Optimization (GEO/AEO) by Osama Elgendy.",
   alternates: {
-    canonical: "https://osamaelgendy.com/blog",
+    canonical: "https://osama-elgendy-portfolio.vercel.app/blog",
     languages: {
-      en: "https://osamaelgendy.com/blog",
-      ar: "https://osamaelgendy.com/ar/blog",
-      "x-default": "https://osamaelgendy.com/blog",
+      en: "https://osama-elgendy-portfolio.vercel.app/blog",
+      ar: "https://osama-elgendy-portfolio.vercel.app/ar/blog",
+      "x-default": "https://osama-elgendy-portfolio.vercel.app",
     },
   },
   openGraph: {
     title: "SEO Blog & Technical Architecture Guides | Osama Elgendy",
     description:
       "Actionable technical SEO guides, Next.js optimization playbooks, E-Commerce revenue frameworks (Salla, Zid, Shopify), and Generative Engine Optimization (GEO/AEO).",
-    url: "https://osamaelgendy.com/blog",
+    url: "https://osama-elgendy-portfolio.vercel.app/blog",
     siteName: "Osama Elgendy Portfolio",
     type: "website",
     images: [

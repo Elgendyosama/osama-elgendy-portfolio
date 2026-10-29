@@ -32,24 +32,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = article.metaTitle || `${article.title} | Osama Elgendy`;
   const description = article.metaDescription || article.excerpt;
-  const canonicalUrl = `https://osamaelgendy.com/blog/${article.slug}`;
+  const canonicalUrl = `https://osama-elgendy-portfolio.vercel.app/blog/${article.slug}`;
   const alternateSlug = article.alternateSlug || article.slug;
   const ogImageUrl = article.featuredImage.startsWith("http")
     ? article.featuredImage
-    : `https://osamaelgendy.com${article.featuredImage}`;
+    : `https://osama-elgendy-portfolio.vercel.app${article.featuredImage}`;
 
   return {
     title,
     description,
     keywords: [article.focusKeyword, ...article.tags],
-    authors: [{ name: "Osama Elgendy", url: "https://osamaelgendy.com" }],
+    authors: [{ name: "Osama Elgendy", url: "https://osama-elgendy-portfolio.vercel.app" }],
     creator: "Osama Elgendy",
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        en: `https://osamaelgendy.com/blog/${article.slug}`,
-        ar: `https://osamaelgendy.com/ar/blog/${encodeURIComponent(alternateSlug)}`,
-        "x-default": `https://osamaelgendy.com/blog/${article.slug}`,
+        en: `https://osama-elgendy-portfolio.vercel.app/blog/${article.slug}`,
+        ar: `https://osama-elgendy-portfolio.vercel.app/ar/blog/${encodeURIComponent(alternateSlug)}`,
+        "x-default": `https://osama-elgendy-portfolio.vercel.app/blog/${article.slug}`,
       },
     },
     openGraph: {
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: "Osama Elgendy Portfolio",
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt || article.publishedAt,
-      authors: ["https://osamaelgendy.com"],
+      authors: ["https://osama-elgendy-portfolio.vercel.app"],
       tags: article.tags,
       images: [
         {
@@ -96,10 +96,10 @@ export default async function ArticleSinglePage({ params }: PageProps) {
   const decodedSlug = decodeURIComponent(slug);
   const article = getInitialArticleBySlug(decodedSlug, "en");
 
-  const canonicalUrl = `https://osamaelgendy.com/blog/${slug}`;
+  const canonicalUrl = `https://osama-elgendy-portfolio.vercel.app/blog/${slug}`;
   const fullFeaturedImage = article?.featuredImage.startsWith("http")
     ? article.featuredImage
-    : `https://osamaelgendy.com${article?.featuredImage || "/images/nextjs-technical-seo.jpg"}`;
+    : `https://osama-elgendy-portfolio.vercel.app${article?.featuredImage || "/images/nextjs-technical-seo.jpg"}`;
 
   // 1. JSON-LD BlogPosting / TechArticle Schema
   const articleSchema = article
@@ -120,15 +120,15 @@ export default async function ArticleSinglePage({ params }: PageProps) {
           "@type": "Person",
           name: "Osama Elgendy",
           jobTitle: "SEO Team Leader & E-Commerce SEO Specialist",
-          url: "https://osamaelgendy.com",
+          url: "https://osama-elgendy-portfolio.vercel.app",
         },
         publisher: {
           "@type": "Organization",
           name: "Osama Elgendy SEO Consultancy",
-          url: "https://osamaelgendy.com",
+          url: "https://osama-elgendy-portfolio.vercel.app",
           logo: {
             "@type": "ImageObject",
-            url: "https://osamaelgendy.com/images/og-banner.jpg",
+            url: "https://osama-elgendy-portfolio.vercel.app/images/og-banner.jpg",
           },
         },
         keywords: article.tags.join(", "),
@@ -146,19 +146,19 @@ export default async function ArticleSinglePage({ params }: PageProps) {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://osamaelgendy.com",
+            item: "https://osama-elgendy-portfolio.vercel.app",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Blog",
-            item: "https://osamaelgendy.com/blog",
+            item: "https://osama-elgendy-portfolio.vercel.app/blog",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: article.category,
-            item: `https://osamaelgendy.com/blog?category=${encodeURIComponent(
+            item: `https://osama-elgendy-portfolio.vercel.app/blog?category=${encodeURIComponent(
               article.category
             )}`,
           },
