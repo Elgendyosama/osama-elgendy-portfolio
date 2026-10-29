@@ -30,24 +30,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = article.metaTitle || `${article.title} | أسامة الجندي`;
   const description = article.metaDescription || article.excerpt;
-  const canonicalUrl = `https://osamaelgendy.com/ar/blog/${encodeURIComponent(article.slug)}`;
+  const canonicalUrl = `https://osama-elgendy-portfolio.vercel.app/ar/blog/${encodeURIComponent(article.slug)}`;
   const alternateSlug = article.alternateSlug || article.slug;
   const ogImageUrl = article.featuredImage.startsWith("http")
     ? article.featuredImage
-    : `https://osamaelgendy.com${article.featuredImage}`;
+    : `https://osama-elgendy-portfolio.vercel.app${article.featuredImage}`;
 
   return {
     title,
     description,
     keywords: [article.focusKeyword, ...article.tags],
-    authors: [{ name: "أسامة الجندي", url: "https://osamaelgendy.com" }],
+    authors: [{ name: "أسامة الجندي", url: "https://osama-elgendy-portfolio.vercel.app" }],
     creator: "أسامة الجندي",
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        en: `https://osamaelgendy.com/blog/${alternateSlug}`,
+        en: `https://osama-elgendy-portfolio.vercel.app/blog/${alternateSlug}`,
         ar: canonicalUrl,
-        "x-default": `https://osamaelgendy.com/blog/${alternateSlug}`,
+        "x-default": `https://osama-elgendy-portfolio.vercel.app/blog/${alternateSlug}`,
       },
     },
     openGraph: {
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       locale: "ar_SA",
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt || article.publishedAt,
-      authors: ["https://osamaelgendy.com"],
+      authors: ["https://osama-elgendy-portfolio.vercel.app"],
       tags: article.tags,
       images: [
         {
@@ -95,10 +95,10 @@ export default async function ArabicArticleSinglePage({ params }: PageProps) {
   const decodedSlug = decodeURIComponent(slug);
   const article = getInitialArticleBySlug(decodedSlug, "ar");
 
-  const canonicalUrl = `https://osamaelgendy.com/ar/blog/${encodeURIComponent(slug)}`;
+  const canonicalUrl = `https://osama-elgendy-portfolio.vercel.app/ar/blog/${encodeURIComponent(slug)}`;
   const fullFeaturedImage = article?.featuredImage.startsWith("http")
     ? article.featuredImage
-    : `https://osamaelgendy.com${article?.featuredImage || "/images/nextjs-technical-seo.jpg"}`;
+    : `https://osama-elgendy-portfolio.vercel.app${article?.featuredImage || "/images/nextjs-technical-seo.jpg"}`;
 
   // 1. JSON-LD BlogPosting / TechArticle Schema (Arabic)
   const articleSchema = article
@@ -119,15 +119,15 @@ export default async function ArabicArticleSinglePage({ params }: PageProps) {
           "@type": "Person",
           name: "أسامة الجندي",
           jobTitle: "قائد فريق السيو وخبير سيو المتاجر الإلكترونية",
-          url: "https://osamaelgendy.com",
+          url: "https://osama-elgendy-portfolio.vercel.app",
         },
         publisher: {
           "@type": "Organization",
           name: "استشارات أسامة الجندي للسيو",
-          url: "https://osamaelgendy.com",
+          url: "https://osama-elgendy-portfolio.vercel.app",
           logo: {
             "@type": "ImageObject",
-            url: "https://osamaelgendy.com/images/og-banner.jpg",
+            url: "https://osama-elgendy-portfolio.vercel.app/images/og-banner.jpg",
           },
         },
         keywords: article.tags.join(", "),
@@ -145,19 +145,19 @@ export default async function ArabicArticleSinglePage({ params }: PageProps) {
             "@type": "ListItem",
             position: 1,
             name: "الرئيسية",
-            item: "https://osamaelgendy.com/ar",
+            item: "https://osama-elgendy-portfolio.vercel.app/ar",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "المدونة",
-            item: "https://osamaelgendy.com/ar/blog",
+            item: "https://osama-elgendy-portfolio.vercel.app/ar/blog",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: article.category,
-            item: `https://osamaelgendy.com/ar/blog?category=${encodeURIComponent(
+            item: `https://osama-elgendy-portfolio.vercel.app/ar/blog?category=${encodeURIComponent(
               article.category
             )}`,
           },

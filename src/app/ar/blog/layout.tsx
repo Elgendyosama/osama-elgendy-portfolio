@@ -5,18 +5,18 @@ export const metadata: Metadata = {
   description:
     "مقالات وأدلة عملية في السيو التقني، ومضاعفة مبيعات متاجر سلة وزد وشوبيفاي في السعودية والخليج، وتصدر محركات بحث الذكاء الاصطناعي (GEO و AEO).",
   alternates: {
-    canonical: "https://osamaelgendy.com/ar/blog",
+    canonical: "https://osama-elgendy-portfolio.vercel.app/ar/blog",
     languages: {
-      en: "https://osamaelgendy.com/blog",
-      ar: "https://osamaelgendy.com/ar/blog",
-      "x-default": "https://osamaelgendy.com/blog",
+      en: "https://osama-elgendy-portfolio.vercel.app/blog",
+      ar: "https://osama-elgendy-portfolio.vercel.app/ar/blog",
+      "x-default": "https://osama-elgendy-portfolio.vercel.app/blog",
     },
   },
   openGraph: {
     title: "مدونة السيو وهندسة محركات البحث | أسامة الجندي",
     description:
       "مقالات وأدلة عملية في السيو التقني، ومضاعفة مبيعات متاجر سلة وزد وشوبيفاي في السعودية والخليج، وتصدر محركات بحث الذكاء الاصطناعي (GEO و AEO).",
-    url: "https://osamaelgendy.com/ar/blog",
+    url: "https://osama-elgendy-portfolio.vercel.app/ar/blog",
     siteName: "Osama Elgendy Portfolio",
     type: "website",
     locale: "ar_SA",
