@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { checkIsAuthenticated, setAdminSession } from "@/lib/store";
-import { ShieldCheck, Lock, User, ArrowRight, AlertCircle, KeyRound, Sparkles } from "lucide-react";
+import { Lock, User, ArrowRight, AlertCircle, KeyRound } from "lucide-react";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -25,9 +25,14 @@ export default function LoginPage() {
     setLoading(true);
 
     setTimeout(() => {
-      // Validate credentials (accepts osama or admin)
-      const validUser = username.trim().toLowerCase() === "osama" || username.trim().toLowerCase() === "admin";
-      const validPass = password === "elgendy_seo_2026" || password === "admin123" || password === "osama2026";
+      // Validate credentials
+      const validUser =
+        username.trim().toLowerCase() === "osama" ||
+        username.trim().toLowerCase() === "admin";
+      const validPass =
+        password === "elgendy_seo_2026" ||
+        password === "admin123" ||
+        password === "osama2026";
 
       if (validUser && validPass) {
         setAdminSession(true);
@@ -74,7 +79,7 @@ export default function LoginPage() {
               <input
                 type="text"
                 required
-                placeholder="osama or admin"
+                placeholder="Enter username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:border-brand-500 focus:bg-white focus:outline-none transition-colors"
@@ -110,28 +115,6 @@ export default function LoginPage() {
             </button>
           </div>
         </form>
-
-        {/* Demo Credentials Quick Fill Helper */}
-        <div className="mt-8 pt-6 border-t border-slate-100 text-center">
-          <div className="p-3 rounded-xl bg-brand-50 border border-brand-200 text-[11px] text-brand-800 space-y-1">
-            <p className="font-bold flex items-center justify-center gap-1">
-              <Sparkles className="w-3.5 h-3.5 text-brand-600" /> Demo Login Credentials:
-            </p>
-            <p className="font-mono text-slate-600">
-              Username: <span className="text-slate-900 font-bold">osama</span> | Password: <span className="text-slate-900 font-bold">elgendy_seo_2026</span>
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                setUsername("osama");
-                setPassword("elgendy_seo_2026");
-              }}
-              className="text-[10px] text-brand-700 underline hover:text-brand-800 font-semibold mt-1"
-            >
-              Click to Auto-fill Demo Credentials
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );
